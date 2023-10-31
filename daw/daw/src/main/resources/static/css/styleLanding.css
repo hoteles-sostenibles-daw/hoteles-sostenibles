@@ -1,0 +1,31 @@
+html{
+    height: 100%;
+    box-sizing: border-box;
+}
+body{
+    display:flex;
+    flex-direction: column;
+    background: rgb(243, 246, 243);
+}
+.container{
+    display:flex;
+    flex-direction: row;
+    background-color: antiquewhite;
+    border: 2px solid black;
+
+}
+.items{
+    width: 100px;
+    margin: 20 px;
+    text-align: center;
+    line-height: 100 px;
+    border: 2 px solid black;
+}
+
+
+
+
+
+footer{
+    margin-top: auto;
+}
