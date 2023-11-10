@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control NOMBRE HOTEL</title>
+    <link rel="stylesheet" href="../../css/dashboardHotel.css">
+</head>
+<body onload="funcionesInicio()">
+    <header>
+        <h1>LOGO/NOMBRE HOTEL</h1>
+    </header>
+
+    <main>
+        <h2>GESTIÓN DE RESERVAS</h2>
+        
+        <section class="infoReservasContainer">
+            <article class="inputContainer">
+                <div>
+                    <input type="text" placeholder="nº reserva">
+                    <button onclick="cargarGestionReserva()">Buscar</button>
+                </div>
+    
+                <div>
+                    <input type="text" placeholder="nº habitación">
+                    <button onclick="cargarGestionGastos()">Buscar</button>
+                </div>
+            </article>
+            
+            <article class="articleComponenteContainer">
+                
+            </article>
+        </section>
+    </main>
+    <script src="../../js/dashboardHotel/dashboardReserva.js"></script>
+</body>
+</html>

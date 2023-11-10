@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control NOMBRE HOTEL</title>
+    <link rel="stylesheet" href="../../css/dashboardHotel.css">
+</head>
+<body onload="funcionesInicio()">
+    <header>
+        <h1>LOGO/NOMBRE HOTEL</h1>
+    </header>
+
+    <main>
+        <h3>AÑADIR CONSUMO</h3>
+        
+        <form method="POST">
+            <label>
+                Concepto
+                <input type="text">
+            </label>
+            <label>
+                Precio
+                <input type="text">
+            </label>
+            <button onsubmit="insertarGasto()">Añadir</button>
+        </form>
+    </main>
+    <script src="../../js/dashboardHotel/dashboardGastos.js"></script>
+</body>
+</html>
