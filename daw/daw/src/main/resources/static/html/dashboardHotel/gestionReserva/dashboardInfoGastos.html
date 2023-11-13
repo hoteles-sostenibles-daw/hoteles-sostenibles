@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control NOMBRE HOTEL</title>
+    <link rel="stylesheet" href="../../../css/dashboardHotel.css">
+    
+</head>
+<body onload="funcionesInicioInfoGastos()">
+    <header>
+        <h1>LOGO/NOMBRE HOTEL</h1>
+    </header>
+
+    <main>
+        <h2>INFORMACIÓN DE GASTOS</h2>
+        
+        <section class="infoReservasContainer">
+            <article class="inputContainer">
+                <div>
+                    <input class="inputNumReserva" type="text" placeholder="nº reserva">
+                    <button onclick="cargarGestionReserva()">Buscar</button>
+                </div>
+    
+                <div>
+                    <input class="inputNumHabitacion" type="text" placeholder="nº habitación">
+                    <button onclick="cargarGestionGastos()">Buscar</button>
+                </div>
+            </article>
+                <article class="articleComponente">
+                    <h3>Nº HABITACIÓN <span class="spanNumHabitacion"></span></h3>
+                    <ul>
+                        <li class="liInfoGastos">
+                            <div>
+                                <span>check o cruz </span><span>Cocacola: </span><span>10</span><span>€ </span>
+                            </div>
+                        </li>
+                        <li class="liInfoGastos">
+                            <div>
+                                <span>check o cruz </span><span>Menu del dia: </span><span>15</span><span>€ </span>
+                            </div>
+                        </li>
+                        <li class="liInfoGastos">
+                            <div>
+                                <span>check o cruz </span><span>Cocacola: </span><span>10</span><span>€ </span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="infoPagar">
+                        <span>TOTAL</span><span>50</span>
+                        <button>Pagar</button>
+                    </div>
+                    <button onclick="cargarInicio()">Volver al incio</button>
+                </article>
+        </section>
+    </main>
+    <script src="../../../js/dashboardHotel/dashboardReserva.js"></script>
+</body>
+</html>
+
+
+
+
+
+
