@@ -21,15 +21,15 @@ body{
 }
 
 .mainContainer{
+    flex:1;
+}
+.mainInfo{
     display:flex;
     flex-direction: row;
     justify-content:space-evenly;
     flex-wrap:wrap;
     width: 100vw;
-    margin:50px 0;
-   
-   
-
+    height: 100%;
 }
 .textoInfo{
     line-height: 30px;
@@ -58,11 +58,8 @@ input{
 }
 
 .mainItems{
-  
-    padding:10px;
     display:flex;
     flex-direction: column;
-   
 }
 
 .formButton{
@@ -76,16 +73,7 @@ input{
 .formButton:hover{
     background-color: bisque;
 }
-.footerSection{
-    display: flex;
-    justify-content: space-around;
-    padding-top: 20px;
 
-}
-.footerIconosContainer{
-    display:flex;
-
-}
 .footerContainer{
     width: 100vw;
     display:flex;
@@ -97,18 +85,19 @@ input{
 }
 .footerInfoContainer{
     display: flex;
-    justify-content: center;
-    width: 90%;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-wrap: wrap;
 }
 .footerInfo{
-    
-   
-    
+    padding-top: 30px;
 }
 .footerIconos{
     display: flex;
     gap: 20px;
-   
+    padding-top: 40px;
+    width: 260px
+    
 }
 ul{
     margin:0;
@@ -125,7 +114,6 @@ li{
 .iconos{
     width: 40px;
     height: 40px
-  
 }
 
 .iconos:hover{
@@ -141,12 +129,15 @@ a:hover{
 
 }
 .footerPoliticas{
-   
+    padding-top: 30px;
+    line-height: 25px;
 }
-.copirigth{
+.copyrigth{
     font-size: 0.75rem;
 
 }
-
+.parrafoPoliticas{
+    margin: 0;
+}
 
     
