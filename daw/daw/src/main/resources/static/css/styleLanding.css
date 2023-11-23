@@ -21,7 +21,8 @@ body{
 }
 
 .mainContainer{
-    flex:1;
+    display: flex;
+    flex: 1;
 }
 .mainInfo{
     display:flex;
@@ -29,7 +30,8 @@ body{
     justify-content:space-evenly;
     flex-wrap:wrap;
     width: 100vw;
-    height: 100%;
+    align-items: center;
+    flex-grow: 1;
 }
 .textoInfo{
     line-height: 30px;
