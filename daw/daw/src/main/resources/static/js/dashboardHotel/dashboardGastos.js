@@ -1,3 +1,4 @@
-function insertarGasto(){
+function insertarGasto()
+{
     
 }
