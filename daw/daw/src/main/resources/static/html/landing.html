@@ -8,68 +8,69 @@
    
 </head>
 <body>
-    <heder>
-        <nav class="container">
-            <section class="item">
-                <img src="../css/Logo.png" alt="Logo de la empresa">
-            </section>
-            <section class="item">
-                <input type="text">
-            </section>
-            <section class="item">
-                <button> iniciar sesion</button>
-            </section>
-        </nav>
-    </heder>
-    <main>
-        <section class="item">
-            <img src="../css/imagen hotel sostenible.png" alt="imagen chula de hotel sostenible">
-            <p class="info"> Hacemos que la estancia de tus clientes sea lo mas comoda y sosotenible posible.
-                Unete al cambio real de la sosotenibilidad hotelera  </p>
+    <header class="headerContainer">
+        <img src="../css/logoWeb.png" class="logoWeb" alt="Logo de la empresa">
+  
+    </header>
+    <main  class="mainContainer">
+        <section class="info">
+            <h3> ¿Quiénes somos?</h3>
+            <p class="textoInfo" > Somos un equipo comprometido con la transformación sostenible de la industria hotelera.
+                 Ayudamos a hoteles a implementar cambios hacia prácticas más responsables.
+                 Además, ofrecemos una solucion integral en línea para mejorar la experiencia de los huéspedes,
+                 facilitando su estancia. ¡Impulsamos un cambio hacia la sostenibilidad
+                 y la excelencia en la hospitalidad, asegurando un futuro más consciente para la industria hotelera!
+            </p>
         </section>
-        <section>
-            <article class="item">
-                <img src="../css/logoecovidrio.png" alt="logo eco vidrio">
-                <img src="../css/Naturgy.png" alt="logo Naturgy luz">
-                <img src="../css/logoIberdrola.png" alt="logo Iberdrola agua ">
-                <img src="../css/logoorsted.png" alt="paneles solares ">
-            </article> 
-        </section>
-        <section>
-            <article>
-                <h2>Pack Básico</h2>
-                <p>
-                    Este pack incluye......
-                </p>
-                <button> Comprar ahora </button>
-            </article> 
-            <article>
-                <h2>Pack premium</h2>
-                <p>
-                    Este pack incluye......
-                </p>
-                <button> Comprar ahora </button>
-            </article> 
+        <section class="mainItems" >
+            <h3> Formulario de contacto </h3>
+            <form method="POST" class="mainFormulario" name="contacto">
+                <label>Nombre
+                     <input type="text" name="nombre">
+                </label>  
+                <label>E-mail
+                     <input type="email" name="email">
+                </label>
+            
+            
+                <button type="onsubmit" class="formButton" > Enviar </button>
+            </form>
         </section>
     </main>
-    <footer class="container">
-        <section class="items">
-           <article>
-            <p>Informacion de la empresa</p>
-           </article>
-           <article>
-            <p>Informacion legal</p>
-           </article>
-           <article>
-            <a href="" alt="Instagram"></a>
-           </article>
-           <article>
-            <a href="" alt="facebook"></a>
-           </article>
-           <article>
-            <p> copyright</p>
-           </article>
+    <footer class="footerContainer">
+       <section class="footerInfoContainer"> 
+            <article class="footerInfo">
+                <ul>
+                <li>Hoteles Sostenibles SL</li>
+                <li>Avda. Diagonal 300, 08013 Barcelona</li>
+                <li>+34 6890005733</li>
+                <li>hoteles.sostenibles.info@gmail.com</li>
+                </ul> 
+            </article>
+            <section class="footerSection">
+                <div class="footerIconosContainer">
+                    <article class="footerIconos" >
+                        <div class="footerImagen">
+                            <img class="iconos" src="../css/logoInstagram.png" alt="logo instagram">
+                        </div> 
+                        <div class="footerImagen">
+                            <img class="iconos" src="../css/logoFacebook.png" alt="logo facebook">
+                        </div>
+                        <div class="footerImagen">
+                            <img class="iconos" src="../css/logoTwiter.png" alt="logo X">
+                        </div>
+                    </article>
+                    <article class="footerPoliticas">
+                        <p><a href="">Política de privacidad </a></p>
+                        <p><a href="">Política de cookies  </a></p>
+                        <p><a href="">Aviso legal  </a></p>
+                    </article>
+
+                </div>
+            </section>
         </section>
+           
+        <p class="copirigth">Hoteles Sostenibles © 2024 </p>
     </footer>
     
 </body>

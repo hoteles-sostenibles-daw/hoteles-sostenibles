@@ -1,29 +1,152 @@
 html{
     height: 100%;
-    box-sizing: border-box;
+  
+    margin:0;
 }
 body{
     display:flex;
     flex-direction: column;
-    background: rgb(243, 246, 243);
+    min-height: 100%;
+    margin:0;
 }
-.container{
+.headerContainer{
+    background-color: antiquewhite;
+    flex-wrap:wrap;
+    height: 200px;
+    margin:0;
+    text-align: center;
+}
+.logoWeb{
+    height: 100%;
+}
+
+.mainContainer{
     display:flex;
     flex-direction: row;
-    background-color: antiquewhite;
-    border: 2px solid black;
+    justify-content:space-evenly;
+    flex-wrap:wrap;
+    width: 100vw;
+    margin:50px 0;
+   
+   
 
 }
-.items{
-    width: 100px;
-    margin: 20 px;
-    text-align: center;
-    line-height: 100 px;
-    border: 2 px solid black;
+.textoInfo{
+    line-height: 30px;
 }
+.info{
+    min-width: 400px;
+    max-width: 400px;
 
-
-footer{
+}
+.mainFormulario{
     display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+label{
+    display: flex;
+    flex-direction: column;
+   
+}
+input{
+    margin-top: 5px;
+    padding: 5px;
+    width: 300px;
+    border-radius: 15px;
+}
+
+.mainItems{
+  
+    padding:10px;
+    display:flex;
+    flex-direction: column;
+   
+}
+
+.formButton{
+    margin:20px;
+    border-radius: 15px;
+    height: 40px;
+    width: 100px;
+    text-align: center;
     
 }
+.formButton:hover{
+    background-color: bisque;
+}
+.footerSection{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+
+}
+.footerIconosContainer{
+    display:flex;
+
+}
+.footerContainer{
+    width: 100vw;
+    display:flex;
+    align-items: center;
+    flex-wrap:wrap;
+    background-color: rgb(201, 222, 215);
+    margin-top: auto;
+    flex-direction: column;
+}
+.footerInfoContainer{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
+.footerInfo{
+    
+   
+    
+}
+.footerIconos{
+    display: flex;
+    gap: 20px;
+   
+}
+ul{
+    margin:0;
+    padding: 0;
+}
+li{
+    list-style: none;
+    line-height: 30px;
+}
+.footerImagen{
+    width: 50px;
+    height: 50px;
+}
+.iconos{
+    width: 40px;
+    height: 40px
+  
+}
+
+.iconos:hover{
+    width: 50px;
+    height: 50px;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: bisque;
+
+}
+.footerPoliticas{
+   
+}
+.copirigth{
+    font-size: 0.75rem;
+
+}
+
+
+    
