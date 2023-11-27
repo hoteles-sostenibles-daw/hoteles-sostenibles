@@ -1,0 +1,173 @@
+html{
+    height: 100%;
+    margin:0;
+   
+}
+body{
+   
+    display:flex;
+    flex-direction: column;
+    min-height: 100%;
+    margin:0;
+    background: linear-gradient(180deg, rgb(246, 246, 242) 69%, rgb(192, 171, 104) 100%);
+    background-attachment: fixed;
+    background-size:100% 100%;
+    gap:50px;
+    font-family:'Trebuchet MS', sans-serif;
+    font-size: medium;
+    color:#2D442E ;
+}
+.headerImagen{
+    width: 100vw;
+    height: 150px;
+    padding: 15px;
+    background: url("../css/forest.jpg") center;
+    border-radius: 0 0 150% 150%;
+    opacity: 0.8;
+
+
+}
+.headerLogo{
+    display: flex;
+    width: 100vw;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+
+}
+.logo{
+    height: 100%;
+    width: 300px;
+
+}
+.linea{
+    height: 50%;
+    width: 35%;
+}
+.mainInfo{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    flex-wrap:wrap;
+    width: 100vw;
+    align-items: center;
+    flex-grow: 1;
+}
+.textoInfo{
+    line-height: 30px;
+    text-align: justify;
+}
+.info{
+    min-width: 400px;
+    max-width: 400px;
+
+}
+.mainFormulario{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+label{
+    display: flex;
+    flex-direction: column;
+   
+}
+input{
+    margin-top: 5px;
+    padding: 10px;
+    height: 25px;
+    width: 300px;
+    border-radius: 15px;
+}
+
+.mainItems{
+    display:flex;
+    flex-direction: column;
+}
+
+.formButton{
+    margin:20px;
+    border-radius: 15px;
+    height: 60px;
+    width: 150px;
+    text-align: center;
+    color:#2D442E ;
+    font-size: 1rem;
+
+    
+}
+.formButton:hover{
+    background-color:rgb(192, 171, 104);
+}
+
+.footerContainer{
+    width: 100vw;
+    display:flex;
+    align-items: center;
+    flex-wrap:wrap;
+    background-color:transparent;
+    margin-top: auto;
+    flex-direction: column;
+   
+}
+.footerInfoContainer{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.footerInfo{
+    padding-top: 30px;
+}
+.footerIconos{
+    display: flex;
+    gap: 20px;
+    padding-top: 40px;
+    width: 260px
+    
+}
+ul{
+    margin:0;
+    padding: 0;
+}
+li{
+    list-style: none;
+    line-height: 30px;
+}
+.footerImagen{
+    width: 50px;
+    height: 50px;
+}
+.iconos{
+    width: 40px;
+    height: 40px
+}
+
+.iconos:hover{
+    width: 50px;
+    height: 50px;
+}
+a {
+    text-decoration: none;
+    color:#2D442E ;
+   
+}
+a:hover{
+    color: rgb(246, 246, 242) 
+
+}
+.footerPoliticas{
+    padding-top: 30px;
+    line-height: 25px;
+   
+}
+.copyrigth{
+    font-size: 0.75rem;
+
+}
+.parrafoPoliticas{
+    margin: 0;
+}
+
+    
