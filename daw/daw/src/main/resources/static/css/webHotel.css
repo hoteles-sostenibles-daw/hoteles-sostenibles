@@ -1,0 +1,210 @@
+html{
+    height: 100%;
+    margin: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    margin: 0;
+    background: linear-gradient(180deg, rgb(246, 246, 242) 69%, rgb(192, 171, 104) 100%);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    gap: 50px;
+    font-family: 'Trebuchet MS',  sans-serif;
+    color: #2D442E;
+}
+
+.imagenCabecera{
+    width: 100vw;
+    height: 150px;
+    padding: 15px;
+    background: url("../../../../../../../imagenes/forest.jpg") center;
+    border-radius: 0 0 150% 150%;
+    opacity: 0.8;
+}
+
+.logoCabecera{
+    display: flex;
+    width: 100vw;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+}
+.logoHotel{
+    height: 100%;
+    width: 300px;
+}
+.lineaCabecera{
+    height: 50%;
+    width: 35%;
+}
+
+
+main{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    
+}
+
+.columna{
+    display: flex;
+    margin-right: 100px;
+    border: 1px;
+    padding:25px;
+
+}
+/*calendario*/
+#calendar {
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  #monthYear {
+    font-size: 1.5em;
+  }
+  .day-cell.diaActual{
+    border:1px solid #45a049;
+
+  }
+  .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    background-color: #f2f2f2;
+    margin-bottom: 10px;
+  }
+  
+  .day-cell {
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+  }
+  
+  .calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  
+  .current-month {
+    background-color: #fff;
+  }
+  
+  #prevMonth,
+  #nextMonth {
+    font-size: 1em;
+    cursor: pointer;
+  }
+
+/*calendario*/
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%; 
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #2D442E;
+}
+
+button:hover {
+    background-color: #45a049; 
+}
+
+.footerContainer{
+    width: 100vw;
+    display:flex;
+    align-items: center;
+    flex-wrap:wrap;
+    background-color:transparent;
+    margin-top: auto;
+    flex-direction: column;
+
+}
+.footerInfoContainer{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.footerInfo{
+    padding-top: 30px;
+}
+.footerIconos{
+    display: flex;
+    gap: 20px;
+    padding-top: 40px;
+    width: 260px
+
+}
+ul{
+    margin:0;
+    padding: 0;
+}
+li{
+    list-style: none;
+    line-height: 30px;
+}
+.footerImagen{
+    width: 50px;
+    height: 50px;
+}
+.iconos{
+    width: 40px;
+    height: 40px
+}
+
+.iconos:hover{
+    width: 50px;
+    height: 50px;
+}
+a {
+    text-decoration: none;
+    color:#2D442E ;
+
+}
+a:hover{
+    color: rgb(246, 246, 242) 
+
+}
+.footerPoliticas{
+    padding-top: 30px;
+    line-height: 25px;
+
+}
+.copyrigth{
+    font-size: 0.75rem;
+
+}
+.parrafoPoliticas{
+    margin: 0;
+}
+
+
+
+
+
+
+
+

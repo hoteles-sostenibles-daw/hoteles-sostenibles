@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/webHotel.css">
+    <title>Web Hotel</title>
+</head>
+<body onload="generarCalendario(new Date())">
+    <header class="imagenCabecera">
+       
+    </header>
+
+    <header class="logoCabecera">
+        <img class="lineaCabecera" src="../../../../../../../imagenes/linea.webp" alt="Línea Cabecera">
+        <h1>Aquí va el logo del hotel</h1>
+        <!--<img class="logoHotel" src="../../../../../../../imagenes/logoWeb.png" alt="Logo Hoteles Sostenibles">-->
+        <img class="lineaCabecera" src="../../../../../../../imagenes/linea.webp" alt="Línea Cabecera">
+    </header>
+
+
+    <main>
+        <section class="columna">
+            <form action="">
+                <h2> Gestione su reserva</h2>
+                <!--Calendario-->
+                <div id="calendar">
+                    <div class="header">
+                      <button id="prevMonth" onclick="actualizarMes('atras')" type="button">&lt;</button>
+                      <h2 id="monthYear"></h2>
+                      <button id="nextMonth" onclick="actualizarMes('next')" type="button">&gt;</button>
+                    </div>
+                    
+                    <div id="calendarDays" class="calendar-days"></div>
+                  </div>
+                
+                  
+
+
+
+
+
+                <!--Cierre del calendario-->
+
+                <h3>Formulario Reserva</h3>
+                <label>Nombre <input type="text" name="nombre"/> </label>
+                
+                <label>Mail <input type="text" name="mail"/> </label>
+                
+                <label>Nº personas <input type="text" name="numeroPersonas"/> </label>
+                
+                <label>Teléfono <input type="text" name="telefono"/> </label>
+                
+                <button>Enviar</button>  
+
+            </form>
+        </section>
+
+        <section class="columna">
+            <form action="">
+                <h2> Numero de reserva</h2>
+                <label>Introduzca el número de su reserva</label>
+                <input type="text" name="busquedaReserva"/>
+                
+                <button>CHECK IN</button>
+                <button>CHECK OUT</button>  
+            </form> 
+        </section>
+    </main>
+
+    <footer class="footerContainer">
+        <section class="footerInfoContainer"> 
+            <article class="footerInfo">
+                <ul>
+                <li>Nombre del hotel</li>
+                <li>Dirección del hotel</li>
+                <li>Teléfono </li>
+                <li>Correo electrónico</li>
+                </ul> 
+            </article>
+
+            <article class="footerIconos" >
+                <div class="footerImagen">
+                    <img class="iconos" src="../../../../../../../imagenes/instagram.png" alt="logo instagram">
+                </div>
+                <div class="footerImagen">
+                    <img class="iconos" src="../../../../../../../imagenes/Facebook.png" alt="logo facebook">
+                </div>
+                <div class="footerImagen">
+                    <img class="iconos" src="../../../../../../../imagenes/logox.png" alt="logo X">
+                </div>
+            </article>
+
+            <article class="footerPoliticas">
+                <p class="parrafoPoliticas"><a href="">Política de privacidad </a></p>
+                <p class="parrafoPoliticas"><a href="">Política de cookies  </a></p>
+                <p class="parrafoPoliticas"><a href="">Aviso legal  </a></p>
+            </article>
+        </section>
+
+        <p class="copyrigth">Hoteles Sostenibles © 2024 </p>
+        
+    </footer>
+
+
+    <script src="../js/webHotel.js"></script>
+
+
+</body>
+</html>
