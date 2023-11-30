@@ -11,7 +11,7 @@
       
       // Fill in the days of the week
       for (let i = 1; i <= 7; i++) {
-       
+      
         calendarHTML += `<p class="diaCelda dias">${obtenerDiaSemana(i)}</p>`;
       }
   
@@ -25,39 +25,25 @@
       
       // Fill in the rest of the days of the month
       const fechaActual = new Date();
-      console.log(fechaActual.getDate())
-
-      for (let i = 2; i <= lastDayOfMonth.getDate(); i++) {
-        const currentDate = new Date(fecha.getFullYear(), fecha.getMonth(), i);
-          if(currentDate.toDateString() === fechaActual.toDateString()){
-              
-                if(fechaActual.getDate() === 1){
-                  calendarHTML += `<button class="diaCelda diaActual" type="button" style="grid-column: ${firstDayOfWeek}">1</button>`;
-                }
-                else{
-                  calendarHTML += `<button class="diaCelda diaActual" type="button">${i}</button>`;
-                }
+    
+      for (let i = 1; i <= lastDayOfMonth.getDate(); i++) {
+        const fechaCalendario = new Date(fecha.getFullYear(), fecha.getMonth());
+    
+          if(i === 1)
+          {
+            if(fechaActual.getDate() === 1) calendarHTML += `<button class="diaCelda diaActual" type="button" style="grid-column: ${firstDayOfWeek}">1</button>`;
+            else if(fechaCalendario < fechaActual) calendarHTML += `<button class="diaCelda diaPasado" type="button" style="grid-column: ${firstDayOfWeek}">1</button>`; 
+            else calendarHTML += `<button class="diaCelda" type="button" style="grid-column: ${firstDayOfWeek}">1</button>`;
           }
-          else if(currentDate.toDateString() < fechaActual.toDateString()){
-           
-            if(fechaActual.getDate()=== 1){
-              calendarHTML += `<button class="diaCelda diaPasado" type="button" style="grid-column: ${firstDayOfWeek}">1</button>`;
-            }
-            else{
-              calendarHTML += `<button class="diaCelda diaPasado" type="button">${i}</button>`;
-            }
-          }
-          else{
-            if(fechaActual.getDate()=== 1){
-              calendarHTML += `<button class="diaCelda" type="button" style="grid-column: ${firstDayOfWeek}">1</button>`;
-            }
-            else{
-              calendarHTML += `<button class="diaCelda" type="button">${i}</button>`;
-            }
-          }
-        }
+          else if(fechaCalendario.getFullYear() === fechaActual.getFullYear() && fechaCalendario.getMonth() === fechaActual.getMonth() && i === fechaActual.getDate()){
+            calendarHTML += `<button class="diaCelda diaActual" type="button">${fechaActual.getDate()}</button>`;
+          } 
+          else if(fechaCalendario < fechaActual) calendarHTML += `<button class="diaCelda diaPasado" type="button">${i}</button>`;
+          else calendarHTML += `<button class="diaCelda" type="button">${i}</button>`;
+      }
       calendarDays.innerHTML = calendarHTML;
     }
+    
   
     function getMonthName(month) {
       const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
