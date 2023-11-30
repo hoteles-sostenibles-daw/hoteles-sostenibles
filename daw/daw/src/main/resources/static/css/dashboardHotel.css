@@ -1,24 +1,47 @@
+html
+{
+    height: 100%;
+}
 body
 {
     min-width: 100vw;
+    height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
     gap: 50px;
+    background: linear-gradient(180deg, rgba(245,243,219,1) 69%, rgba(168,144,62,1) 100%);
+    background-size: 100%;
+    font-family: 'Trebuchet MS', sans-serif;
 }
 /* header */
-header
+.bosqueImgContainer
+{
+    width: 100vw;
+    height: 150px;
+    padding: 15px;
+    border-radius: 0 0 150% 150%;
+    background: url("../img/forest.jpg") center;
+    opacity: 0.8;
+}
+.logoContainer
 {
     display: flex;
     width: 100vw;
     height: 150px;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
-img
+.logoImg
 {
     height: 100%;
+    width: 300px;
 }
-
+.flechaImg
+{
+    height: 50%;
+    width: 35%;
+}
 /* main */
 main
 {
@@ -54,11 +77,13 @@ main
     flex-direction: column;
     align-items: center;
 }
-ul
-{
-    padding: 0;
-}
 /* inicio */
+.ulCheckin, .ulCheckout
+{
+    padding: 10px 30px;
+    border: 1px solid;
+    border-radius: 20px;
+}
 .liReserva
 {
     display: flex;
