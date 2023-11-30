@@ -14,7 +14,6 @@ body{
     font-family: 'Trebuchet MS',  sans-serif;
     color: #2D442E;
 }
-
 .imagenCabecera{
     width: 100vw;
     height: 150px;
@@ -23,7 +22,6 @@ body{
     border-radius: 0 0 150% 150%;
     opacity: 0.8;
 }
-
 .logoCabecera{
     display: flex;
     width: 100vw;
@@ -39,97 +37,120 @@ body{
     height: 50%;
     width: 35%;
 }
-
-
 main{
     display: flex;
     justify-content: center; 
     align-items: center; 
-    
+    height: 100vh;
+    flex-direction: row;
 }
-
-.columna{
+.formularioContainer{
     display: flex;
-    margin-right: 100px;
+    flex-direction: column;
+    width: 40%;
+    margin: 0 auto;
     border: 1px;
     padding:25px;
-
+    align-items: center;
+}
+.infoReservaContainer{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 0 auto;
+    border: 1px;
+    padding: 25px;
+    align-items: center;
+    text-align: center;
 }
 /*calendario*/
 #calendar {
-    max-width: 400px;
-    margin: 20px auto;
+    max-width: 300px;
+    margin:  10px;
   }
-  
-  .header {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
   }
-  
-  #monthYear {
+
+#monthYear {
     font-size: 1.5em;
   }
-  .day-cell.diaActual{
-    border:1px solid #45a049;
-
+.diaCelda.diaActual{
+    border:3px solid #45a049;
   }
-  .days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    background-color: #f2f2f2;
-    margin-bottom: 10px;
+.diaCelda.diaPasado{
+    background-color: rgb(234, 184, 173);
   }
-  
-  .day-cell {
+.diaCelda.diaPasado:hover{
+    background-color: rgb(234, 184, 173);
+}
+.diaCelda.dias {
+    background-color: #f2f2f2;  
+  }
+.diaCelda {
+    background-color: transparent;
+    margin: 0;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #ddd;
+    text-align: center;
+    width: 45px;
+    height: 45px;
   }
-  
-  .calendar-days {
+.diaCelda.dias:hover{
+    background-color: #f2f2f2;
+}
+.diaCelda:hover{
+    background-color: #45a049;
+}
+.calendar-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
+    width: 314px; 
   }
-  
-  .current-month {
+.current-month {
     background-color: #fff;
   }
-  
-  #prevMonth,
-  #nextMonth {
+#prevMonth,#nextMonth {
     font-size: 1em;
     cursor: pointer;
   }
-
 /*calendario*/
-
+.reservaContainer{
+    font-size: 20px;
+}
+.numeroReservaContainer{
+    width: 75%;
+    text-align: center;
+}
 label {
     display: block;
     margin-bottom: 10px;
 }
-
 input {
     width: 100%; 
     padding: 5px;
     margin-top: 5px;
     margin-bottom: 10px;
+    border-radius: 10px;
 }
-
-button {
-    background-color: #4CAF50; 
-    color: white;
+.checkButton{
+    padding: 15 30px;
+    border: none;
+    border-radius: 5px;
+    color: #2D442E;
+    height: 60px;
+    width: 100px;
+}
+.botonEnviarFormulario{
+    background-color: #d2c965; 
     padding: 10px;
     border: none;
     border-radius: 5px;
     color: #2D442E;
-}
-
-button:hover {
-    background-color: #45a049; 
 }
 
 .footerContainer{

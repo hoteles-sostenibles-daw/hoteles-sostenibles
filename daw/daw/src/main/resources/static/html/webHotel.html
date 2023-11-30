@@ -20,9 +20,8 @@
 
 
     <main>
-        <section class="columna">
+        <section class="formularioContainer">
             <form action="">
-                <h2> Gestione su reserva</h2>
                 <!--Calendario-->
                 <div id="calendar">
                     <div class="header">
@@ -33,12 +32,6 @@
                     
                     <div id="calendarDays" class="calendar-days"></div>
                   </div>
-                
-                  
-
-
-
-
 
                 <!--Cierre del calendario-->
 
@@ -51,19 +44,19 @@
                 
                 <label>Teléfono <input type="text" name="telefono"/> </label>
                 
-                <button>Enviar</button>  
+                <button class="botonEnviarFormulario">Enviar</button>  
 
             </form>
         </section>
 
-        <section class="columna">
+        <section class="infoReservaContainer">
             <form action="">
-                <h2> Numero de reserva</h2>
-                <label>Introduzca el número de su reserva</label>
-                <input type="text" name="busquedaReserva"/>
+               
+                <!--<label class="reservaContainer">Número de reserva</label>-->
+                <input class="numeroReservaContainer" type="text" name="busquedaReserva" placeholder="Introduzca el número de su reserva"/>
                 
-                <button>CHECK IN</button>
-                <button>CHECK OUT</button>  
+                <button class="checkButton">CHECK IN</button>
+                <button class="checkButton">CHECK OUT</button>  
             </form> 
         </section>
     </main>
@@ -87,7 +80,7 @@
                     <img class="iconos" src="../../../../../../../imagenes/Facebook.png" alt="logo facebook">
                 </div>
                 <div class="footerImagen">
-                    <img class="iconos" src="../../../../../../../imagenes/logox.png" alt="logo X">
+                    <img class="iconos" src="../../../../../../../imagenes/logoTwiter.png" alt="logo X">
                 </div>
             </article>
 
