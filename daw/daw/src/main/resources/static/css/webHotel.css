@@ -18,7 +18,7 @@ body{
     width: 100vw;
     height: 150px;
     padding: 15px;
-    background: url("../../../../../../../imagenes/forest.jpg") center;
+    background: url("../css/imagenes/forest.jpg") center;
     border-radius: 0 0 150% 150%;
     opacity: 0.8;
 }
@@ -69,6 +69,7 @@ main{
     margin:  10px;
   }
 .header {
+    width: 314px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -117,8 +118,16 @@ main{
 #prevMonth,#nextMonth {
     font-size: 1em;
     cursor: pointer;
+    width: 37px;
+    height: 30px;
   }
+.fechaSeleccionada{
+    background-color: #45a049;
+}
 /*calendario*/
+.hidden{
+    display: none;
+}
 .reservaContainer{
     font-size: 20px;
 }
