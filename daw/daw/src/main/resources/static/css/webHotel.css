@@ -40,24 +40,17 @@ body{
 main{
     display: flex;
     justify-content: center; 
-    align-items: center; 
-    height: 100vh;
     flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    gap: 40px;
 }
 .formularioContainer{
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    margin: 0 auto;
-    border: 1px;
     padding:25px;
-    align-items: center;
 }
 .infoReservaContainer{
     display: flex;
     flex-direction: column;
-    width: 40%;
-    margin: 0 auto;
     border: 1px;
     padding: 25px;
     align-items: center;
@@ -80,13 +73,14 @@ main{
     font-size: 1.5em;
   }
 .diaCelda.diaActual{
-    border:3px solid #45a049;
+    border:3px solid #8ea825;
   }
 .diaCelda.diaPasado{
-    background-color: rgb(234, 184, 173);
+    background: linear-gradient(45deg, rgba(226,100,100,0.6307773109243697) 33%, rgba(244,238,238,1) 100%);
+    
   }
 .diaCelda.diaPasado:hover{
-    background-color: rgb(234, 184, 173);
+    background: linear-gradient(45deg, rgba(226,100,100,0.6307773109243697) 33%, rgba(244,238,238,1) 100%);
 }
 .diaCelda.dias {
     background-color: #f2f2f2;  
@@ -103,9 +97,11 @@ main{
   }
 .diaCelda.dias:hover{
     background-color: #f2f2f2;
+    background: #f2f2f2;
 }
 .diaCelda:hover{
-    background-color: #45a049;
+    background: linear-gradient(45deg, rgba(121,118,9,0.6924019607843137) 33%, rgba(192,204,171,1) 100%);
+    /*background-color: #8ae68fc9;*/
 }
 .calendar-days {
     display: grid;
@@ -120,9 +116,10 @@ main{
     cursor: pointer;
     width: 37px;
     height: 30px;
+   
   }
 .fechaSeleccionada{
-    background-color: #45a049;
+    background: linear-gradient(45deg, rgba(121,118,9,0.6924019607843137) 33%, rgba(192,204,171,1) 100%);
 }
 /*calendario*/
 .hidden{
@@ -140,26 +137,60 @@ label {
     margin-bottom: 10px;
 }
 input {
-    width: 100%; 
+    width: 240px; 
     padding: 5px;
     margin-top: 5px;
     margin-bottom: 10px;
     border-radius: 10px;
+    text-align: center;
+}
+.inputNumeroPersonas{
+    width: 40px;
+}
+.fechaEntrada,.fechaSalida{
+    cursor: default;
+    width: 75px;
+}
+.fechaSalida{
+    position: relative;
+    left: 13px;
 }
 .checkButton{
+    background-color: transparent;
     padding: 15 30px;
-    border: none;
+    border: solid 1px;
     border-radius: 5px;
     color: #2D442E;
-    height: 60px;
-    width: 100px;
+    height: 120px;
+    width: 150px;
+}
+.checkButton:hover{
+    background-color: #A8A838;
+}
+.divBotonEnviarFormulario{
+    text-align: center;
 }
 .botonEnviarFormulario{
-    background-color: #d2c965; 
+    background-color: transparent;
     padding: 10px;
-    border: none;
+    border: solid 1px;
     border-radius: 5px;
     color: #2D442E;
+    width: 100px;   
+}
+.botonEnviarFormulario:hover{
+    background-color: #A8A838;
+}
+.aviso{
+    color: red;
+}
+.email{
+    position: relative;
+    left: 15px;
+}
+.nombre{
+    position: relative;
+    left: 6px;
 }
 
 .footerContainer{

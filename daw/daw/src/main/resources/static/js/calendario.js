@@ -1,3 +1,5 @@
+      /*console.log(Math.round((nuevaFecha.getTime() - fechaGuardada.getTime())/(1000*3600*24)));*/
+
   const intervaloFechas= [];
 
   function generarCalendario(fecha) {
@@ -28,42 +30,31 @@
       // Fill in the rest of the days of the month
       const fechaActual = new Date();
       const fechaCalendario = new Date(fecha.getFullYear(), fecha.getMonth());
+     
+     
       for (let i = 1; i <= lastDayOfMonth.getDate(); i++) {
         
     
           if(i === 1)
           {
-            if(fechaActual.getDate() === 1) calendarHTML += `<button class="diaCelda diaActual f${i}-${fechaCalendario.getMonth()}-${fechaCalendario.getFullYear()}" type="button" onclick = "fechaSeleccionada(this)" style="grid-column: ${firstDayOfWeek}">1</button>`;
+            if((fechaActual.getFullYear() === fechaCalendario.getFullYear()) && (fechaCalendario.getMonth() === fechaActual.getMonth()) &&  (fechaActual.getDate() === 1))  calendarHTML += `<button class="diaCelda diaActual" type="button" onclick = "fechaSeleccionada(this)" style="grid-column: ${firstDayOfWeek}">1</button>`;
             else if(fechaCalendario < fechaActual) calendarHTML += `<button class="diaCelda diaPasado" type="button" style="grid-column: ${firstDayOfWeek}">1</button>`; 
-            else calendarHTML += `<button class="diaCelda f${i}-${fechaCalendario.getMonth()}-${fechaCalendario.getFullYear()}" type="button" onclick = "fechaSeleccionada(this)" style="grid-column: ${firstDayOfWeek}">1</button>`;
+            else calendarHTML += `<button class="diaCelda" type="button" onclick = "fechaSeleccionada(this)" style="grid-column: ${firstDayOfWeek}">1</button>`;
           }
           else if(fechaCalendario.getFullYear() === fechaActual.getFullYear() && fechaCalendario.getMonth() === fechaActual.getMonth() && i === fechaActual.getDate()){
-            calendarHTML += `<button class="diaCelda diaActual f${i}-${fechaCalendario.getMonth()}-${fechaCalendario.getFullYear()}" type="button" onclick = "fechaSeleccionada(this)">${fechaActual.getDate()}</button>`;
+            calendarHTML += `<button class="diaCelda diaActual" type="button" onclick = "fechaSeleccionada(this)">${fechaActual.getDate()}</button>`;
           } 
-          else if(fechaCalendario < fechaActual) calendarHTML += `<button class="diaCelda diaPasado" type="button">${i}</button>`;
-          else calendarHTML += `<button class="diaCelda f${i}-${fechaCalendario.getMonth()}-${fechaCalendario.getFullYear()}" type="button" onclick = "fechaSeleccionada(this)">${i}</button>`;
+          else if(fechaCalendario < fechaActual){ 
+            if(fechaCalendario.getFullYear() !== fechaActual.getFullYear() || fechaCalendario.getMonth() !== fechaActual.getMonth()) calendarHTML += `<button class="diaCelda diaPasado" type="button">${i}</button>`
+            
+            else {
+              if(i < fechaActual.getDate()) calendarHTML += `<button class="diaCelda diaPasado" type="button">${i}</button>`;
+              else calendarHTML += `<button class="diaCelda" type="button" onclick = "fechaSeleccionada(this)">${i}</button>`;
+          }
+          }
+          else calendarHTML += `<button class="diaCelda" type="button" onclick = "fechaSeleccionada(this)">${i}</button>`;
       }
       calendarDays.innerHTML = calendarHTML;
-
-      if(intervaloFechas.length === 1 || intervaloFechas.length === 2 ){
-      
-        if(intervaloFechas.length === 1){
-        
-          if(intervaloFechas[0].split("-")[1] == fechaCalendario.getMonth()){
-            const fecha1 = document.querySelector(`.f${intervaloFechas[0]}`); /* nos queda encontrar el error del querySelector */
-            console.log(intervaloFechas[0]);
-            fecha1.classList.add("fechaSeleccionada");
-          } 
-        }
-        else{
-          const fecha1 = document.querySelector(`.f${intervaloFechas[0]}`);
-          const fecha2 = document.querySelector(`.f${intervaloFechas[1]}`)
-          fecha1.classList.add("fechaSeleccionada");
-          fecha2.classList.add("fechaSeleccionada");
-        }
-        
-
-      }
     }
     
     function fechaSeleccionada(boton){
@@ -72,18 +63,36 @@
       const mesYear = document.getElementById("monthYear").textContent;
       const year = mesYear.split(" ")[1];
       const mes = convertirMes(mesYear.split(" ")[0]);
-      const fecha = `f${dia}-${mes}-${year}`;
-  
+      const fecha = `${dia}-${mes + 1}-${year}`;
+      const fechaEntrada = document.querySelector(".fechaEntrada");
+      const fechaSalida = document.querySelector(".fechaSalida");
       formularioReserva.classList.remove("hidden");
       if(intervaloFechas.length === 0){
         intervaloFechas.push(fecha);
         boton.classList.add("fechaSeleccionada");
+        fechaEntrada.value = fecha;
       }
       else if(intervaloFechas.length === 1){
-        intervaloFechas.push(fecha); 
-        boton.classList.add("fechaSeleccionada");
+        const fechaGuardada = new Date (intervaloFechas[0].split("-")[2], intervaloFechas[0].split("-")[1]-1, intervaloFechas[0].split("-")[0] ) ;
+        const nuevaFecha = new Date (fecha.split("-")[2],fecha.split("-")[1]-1,fecha.split("-")[0]);
+        if(fechaGuardada != nuevaFecha && fechaGuardada < nuevaFecha){
+          intervaloFechas.push(fecha); 
+          boton.classList.add("fechaSeleccionada");
+          fechaSalida.value = fecha;
+          document.querySelector(".divFechaSalida").classList.remove("hidden");
+        }
       }
-     
+      else if(intervaloFechas.length ===2 && intervaloFechas.includes(fecha)) {
+        const elementoSeleccionado = document.querySelectorAll(".fechaSeleccionada");
+        for (const elemento of elementoSeleccionado) {
+            elemento.classList.remove("fechaSeleccionada");
+           }
+           intervaloFechas.length = 0;
+           fechaEntrada.value = "" ;
+           fechaSalida.value = "" ;
+           document.querySelector(".divFechaEntrada").classList.add("hidden");
+           document.querySelector(".divFechaSalida").classList.add("hidden");
+       }
     }
 
     function getMonthName(month) {

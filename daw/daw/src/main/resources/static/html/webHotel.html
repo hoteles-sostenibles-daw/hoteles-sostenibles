@@ -21,7 +21,6 @@
 
     <main>
         <section class="formularioContainer">
-            <form action="">
                 <!--Calendario-->
                 <div id="calendar">
                     <div class="header">
@@ -34,31 +33,28 @@
                   </div>
 
                 <!--Cierre del calendario-->
-                <div class="formularioReserva hidden" >
-                <h3>Formulario Reserva</h3>
-                <label>Nombre <input type="text" name="nombre"/> </label>
-                
-                <label>Mail <input type="text" name="mail"/> </label>
-                
-                <label>Nº personas <input type="text" name="numeroPersonas"/> </label>
-                
-                <label>Teléfono <input type="text" name="telefono"/> </label>
-                
-                <button class="botonEnviarFormulario">Enviar</button>  
-                </div>
-            </form>
         </section>
 
-        <section class="infoReservaContainer">
-            <form action="">
-               
-                <!--<label class="reservaContainer">Número de reserva</label>-->
-                <input class="numeroReservaContainer" type="text" name="busquedaReserva" placeholder="Introduzca el número de su reserva"/>
+        <form onsubmit="enviarFormulario(event)">
+            <section class="formularioReserva hidden" >
+                <h3>Haz tu reserva</h3>
+            
+                <div class="divFechaEntrada"><span>Fecha entrada: </span> <input class="fechaEntrada" type="text"  readonly /></div> 
+                <div class="hidden divFechaSalida"><span>Fecha salida: </span> <input class="fechaSalida" type="text"  readonly /></div>
                 
-                <button class="checkButton">CHECK IN</button>
-                <button class="checkButton">CHECK OUT</button>  
-            </form> 
-        </section>
+                <p>Precio por noche 50€ </p> 
+            
+                <label>Personas <input class="inputNumeroPersonas" type="number" min="1" max="5" name="numeroPersonas"/> </label>
+                
+                <label>Nombre <input type="text" class="nombre"/> </label>
+                
+                <label>E-mail <input type="email" class="email"/> </label>
+                
+                <label>Teléfono <input type="text" class="telefono"/> </label>
+                <p class="aviso hidden">Por favor rellene todos los campos y seleccione dos fechas</p>
+                <div class="divBotonEnviarFormulario"><button class="botonEnviarFormulario">Enviar</button></div>
+            </section>
+        </form>
     </main>
 
     <footer class="footerContainer">
@@ -96,7 +92,8 @@
     </footer>
 
 
-    <script src="../js/webHotel.js"></script>
+    <script src="../js/calendario.js"></script>
+    <script src="../js/index.js"></script>
 
 
 </body>
