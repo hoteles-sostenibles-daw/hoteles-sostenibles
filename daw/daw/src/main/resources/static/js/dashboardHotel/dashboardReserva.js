@@ -2,6 +2,7 @@
 function funcionesInicioGestionReservas()
 {
     fechaActual();
+    comprobarEstadoCheckin()
 }
 // componentes
 function cargarGestionReserva()
@@ -43,5 +44,34 @@ function funcionesInicioInfoGastos()
     document.querySelector('.spanNumHabitacion').textContent = numHabitacion;
 }
 
+//revisar checkin
+function comprobarEstadoCheckin()
+{
+    const check = true;//llamada a la api para verifiar checkin online
+
+    const boton = document.querySelector('.r123456') //numreserva
+
+    if(check) crearOkCheckin(boton);
+}
+
+//checkin hecho
+function checkinRealizado(boton)
+{
+    if(!boton.hasChildNodes()) crearOkCheckin(boton);
+}
+//checkout hecho
+function checkoutRealizado(boton)
+{
+    if(!boton.hasChildNodes()) crearOkCheckin(boton);
+}
+//crear ok checkin/out
+function crearOkCheckin(boton)
+{
+    const iconoOk = document.createElement('img');
+    iconoOk.setAttribute('class','okIcon');
+    iconoOk.setAttribute('src','../../../img/ok.png');
+    iconoOk.setAttribute('alt','icono ok');
+    boton.appendChild(iconoOk)
+}
 
 

@@ -8,8 +8,6 @@
     
 </head>
 <body onload="funcionesInicioGestionReservas()">
-    <header class="bosqueImgContainer">
-    </header>
     <header class="logoContainer">
         <img class="flechaImg" src="../../../img/linea.webp" alt="linea">
         <img class="logoImg" src="../../../img/logoWeb.png" alt="logo">
@@ -22,12 +20,12 @@
             <article class="inputContainer">
                 <div>
                     <input class="inputNumReserva" type="text" placeholder="nº reserva">
-                    <button onclick="cargarGestionReserva()">Buscar</button>
+                    <button class="botonBuscar" onclick="cargarGestionReserva()">Buscar</button>
                 </div>
     
                 <div>
                     <input class="inputNumHabitacion" type="text" placeholder="nº habitación">
-                    <button onclick="cargarGestionGastos()">Buscar</button>
+                    <button class="botonBuscar" onclick="cargarGestionGastos()">Buscar</button>
                 </div>
             </article>
             
@@ -36,48 +34,27 @@
                     <h3>ENTRADAS <span class="spanFecha"></span></h3>
                     <ul class="ulCheckin">
                         <li class="liReserva">
-                            <div>
-                                <span>Nº Reserva: </span><span>123456</span>
-                            </div>
-                            <div>
-                                <span>DNI: </span><span>12345678F</span>
-                            </div>
-                            <div class="checkin">
-                                <span>Check-in </span><span>OK o NO</span>
-                            </div>
+                            <span>Nº Reserva</span><span>DNI</span><span>Check-in</span>
                         </li>
                         <li class="liReserva">
-                            <div>
-                                <span>Nº Reserva: </span><span>123456</span>
-                            </div>
-                            <div>
-                                <span>DNI: </span><span>12345678F</span>
-                            </div>
-                            <div class="checkin">
-                                <span>Check-in </span><span>OK o NO</span>
-                            </div>
+                            <p>123456</p>
+                            <p class="parrafoDNI">12345678F</p>
+                            <button class="checkinState r123456" type="button" onclick="checkinRealizado(this)"></button>
                         </li>
                         <li class="liReserva">
-                            <div>
-                                <span>Nº Reserva: </span><span>123456</span>
-                            </div>
-                            <div>
-                                <span>DNI: </span><span>12345678F</span>
-                            </div>
-                            <div class="checkin">
-                                <span>Check-in </span><span>OK o NO</span>
-                            </div>
+                            <p>123456</p>
+                            <p class="parrafoDNI">12345678F</p>
+                            <button class="checkinState r123456" type="button" onclick="checkinRealizado(this)"></button>
                         </li>
                         <li class="liReserva">
-                            <div>
-                                <span>Nº Reserva: </span><span>123456</span>
-                            </div>
-                            <div>
-                                <span>DNI: </span><span>12345678F</span>
-                            </div>
-                            <div class="checkin">
-                                <span>Check-in </span><span>OK o NO</span>
-                            </div>
+                            <p>123456</p>
+                            <p class="parrafoDNI">12345678F</p>
+                            <button class="checkinState r123456" type="button" onclick="checkinRealizado(this)"></button>
+                        </li>
+                        <li class="liReserva">
+                            <p>123456</p>
+                            <p class="parrafoDNI">12345678F</p>
+                            <button class="checkinState r123456" type="button" onclick="checkinRealizado(this)"></button>
                         </li>
                     </ul>
                 </article>
@@ -86,48 +63,27 @@
                     <h3>SALIDAS <span class="spanFecha"></span></h3>
                     <ul class="ulCheckout">
                         <li class="liReserva">
-                            <div>
-                                <span>Nº Reserva: </span><span>123456</span>
-                            </div>
-                            <div>
-                                <span>DNI: </span><span>12345678F</span>
-                            </div>
-                            <div class="checkin">
-                                <span>Check-out </span><span>OK o NO</span>
-                            </div>
+                            <span>Nº Reserva</span><span>DNI</span><span>Check-out</span>
                         </li>
                         <li class="liReserva">
-                            <div>
-                                <span>Nº Reserva: </span><span>123456</span>
-                            </div>
-                            <div>
-                                <span>DNI: </span><span>12345678F</span>
-                            </div>
-                            <div class="checkin">
-                                <span>Check-out </span><span>OK o NO</span>
-                            </div>
+                            <p>123456</p>
+                            <p class="parrafoDNI">12345678F</p>
+                            <button class="checkoutState r123456" type="button" onclick="checkoutRealizado(this)"></button>
                         </li>
                         <li class="liReserva">
-                            <div>
-                                <span>Nº Reserva: </span><span>123456</span>
-                            </div>
-                            <div>
-                                <span>DNI: </span><span>12345678F</span>
-                            </div>
-                            <div class="checkin">
-                                <span>Check-out </span><span>OK o NO</span>
-                            </div>
+                            <p>123456</p>
+                            <p class="parrafoDNI">12345678F</p>
+                            <button class="checkoutState r123456" type="button" onclick="checkoutRealizado(this)"></button>
                         </li>
                         <li class="liReserva">
-                            <div>
-                                <span>Nº Reserva: </span><span>123456</span>
-                            </div>
-                            <div>
-                                <span>DNI: </span><span>12345678F</span>
-                            </div>
-                            <div class="checkin">
-                                <span>Check-out </span><span>OK o NO</span>
-                            </div>
+                            <p>123456</p>
+                            <p class="parrafoDNI">12345678F</p>
+                            <button class="checkoutState r123456" type="button" onclick="checkoutRealizado(this)"></button>
+                        </li>
+                        <li class="liReserva">
+                            <p>123456</p>
+                            <p class="parrafoDNI">12345678F</p>
+                            <button class="checkoutState r123456" type="button" onclick="checkoutRealizado(this)"></button>
                         </li>
                     </ul>
                 </article>

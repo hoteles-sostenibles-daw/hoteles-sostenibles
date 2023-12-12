@@ -4,26 +4,17 @@ html
 }
 body
 {
+    background-color: rgb(248, 244, 237);
     min-width: 100vw;
     height: 100%;
-    margin: 0;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     gap: 50px;
-    background: linear-gradient(180deg, rgba(245,243,219,1) 69%, rgba(168,144,62,1) 100%);
-    background-size: 100%;
     font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.25rem;
 }
 /* header */
-.bosqueImgContainer
-{
-    width: 100vw;
-    height: 150px;
-    padding: 15px;
-    border-radius: 0 0 150% 150%;
-    background: url("../img/forest.jpg") center;
-    opacity: 0.8;
-}
 .logoContainer
 {
     display: flex;
@@ -64,6 +55,19 @@ main
     flex-wrap: wrap;
     gap: 50px;
 }
+input
+{
+    text-align: center;
+    height: 25px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+.botonBuscar
+{
+    height: 30px;
+    width: 80px;
+    border-radius: 10px;
+}
 .articleComponenteContainer
 {
     display: flex;
@@ -80,17 +84,49 @@ main
 /* inicio */
 .ulCheckin, .ulCheckout
 {
-    padding: 10px 30px;
-    border: 1px solid;
-    border-radius: 20px;
+    padding: 0;
 }
 .liReserva
 {
     display: flex;
     gap: 20px;
-    padding: 20px 0;
+    padding: 10px 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    justify-content: space-around;
+    min-width: 430px;
 }
-
+p{
+    margin: 0;
+}
+.checkinState
+{
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    text-align: center;
+    position: relative;
+    right: 15px;
+}
+.checkoutState
+{
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    text-align: center;
+    position: relative;
+    right: 25px;
+}
+.okIcon
+{
+    width: 15px;
+    height: 15px;
+}
+.parrafoDNI
+{
+    position: relative;
+    right: 15px;
+}
 /* info reserva */
 .liInfoReserva
 {
