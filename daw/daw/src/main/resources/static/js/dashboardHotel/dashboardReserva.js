@@ -31,18 +31,18 @@ function fechaActual()
 }
 
 //info reserva
-function funcionesInicioInfoReserva()
-{
-    const numReserva = window.location.href.split('-')[1];
-    document.querySelector('.spanNumReserva').textContent = numReserva;
-}
+// function funcionesInicioInfoReserva()
+// {
+//     const numReserva = window.location.href.split('-')[1];
+//     document.querySelector('.spanNumReserva').textContent = numReserva;
+// }
 
 //info reserva
-function funcionesInicioInfoGastos()
-{
-    const numHabitacion = window.location.href.split('-')[1];
-    document.querySelector('.spanNumHabitacion').textContent = numHabitacion;
-}
+// function funcionesInicioInfoGastos()
+// {
+//     const numHabitacion = window.location.href.split('-')[1];
+//     document.querySelector('.spanNumHabitacion').textContent = numHabitacion;
+// }
 
 //revisar checkin
 function comprobarEstadoCheckin()
