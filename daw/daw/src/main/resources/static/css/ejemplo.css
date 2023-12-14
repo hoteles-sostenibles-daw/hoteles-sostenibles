@@ -1,0 +1,14 @@
+main{
+    display: flex;
+    flex-direction: column;
+}
+.mainInfoContactoContainer{
+    display: flex;
+    flex-direction: column;
+}
+.h3InfoContacto{
+    font-size: 1.5rem;
+}
+.pInfoContacto{
+    
+}

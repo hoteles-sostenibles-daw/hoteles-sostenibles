@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control NOMBRE HOTEL</title>
+    <link rel="stylesheet" href="../../../css/dashboardHotel.css">
+    
+</head>
+<body onload="funcionesInicioInfoReserva()">
+    <header class="logoContainer">
+        <img class="flechaImg" src="../../../img/linea.webp" alt="linea">
+        <img class="logoImgFake" src="../../../img/logoFake.png" alt="logo">
+        <img class="flechaImg" src="../../../img/linea.webp" alt="linea">
+    </header>
+
+    <main>
+        <h2>INFORMACIÓN DE RESERVA</h2>
+        
+        <section class="infoReservasContainer">
+        
+                <article class="articleComponente">
+                    <h3>Nº RESERVA <span class="spanNumReserva">123456</span></h3>
+                    <ul class="ulInfoReserva ulStyleReserva">
+                        <li class="liInfoReserva">
+                            <div class="divInfoReservaContainer">
+                                <div class="divInfoReserva">
+                                    <span>Fecha Entrada: </span><span>10/10/2023</span>
+                                </div>
+                                <div  class="divInfoReserva">
+                                    <span>Fecha Salida: </span><span>19/10/2023</span>
+                                </div>
+                                <div class="divInfoReserva">
+                                    <span>Habitación: </span><span>55</span>
+                                </div>
+                                <div  class="divInfoReserva">
+                                    <span>Número huéspedes: </span><span>3</span>
+                                </div>
+                                <div  class="divInfoReserva">
+                                    <span>Teléfono: </span><span>666666666</span>
+                                </div>
+                                <div  class="divInfoReserva">
+                                    <span>Email: </span><span>example@example.com</span>
+                                </div>
+                            </div>
+                            <img class="imgDNI" src="../../../img/dni/dnir123456.webp" alt="FOTO DNI">
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="articleComponente">
+                    <h3>GASTOS HABITACIÓN <span class="spanNumHabitacion">55</span></h3>
+                    <ul class="ulInfoReserva">
+                        <li class="liInfoGastos">
+                            <span>Consumo</span><span>Precio</span><span>Pagado</span>
+                        </li>
+                        <li class="liInfoGastos">
+                            <p class="parrafoTipoConsumo">Cocacola</p>
+                            <p class="parrafoConsumo">20€</p>
+                            <button class="checkinState r123456" type="button" onclick="checkinRealizado(this)"></button>
+                        </li>
+                        <li class="liInfoGastos">
+                            <p class="parrafoTipoConsumo">Menu dia</p>
+                            <p class="parrafoConsumo">20€</p>
+                            <button class="checkinState r123456" type="button" onclick="checkinRealizado(this)"></button>
+                        </li>
+                        <li class="liInfoGastos">
+                            <p class="parrafoTipoConsumo">Desayuno</p>
+                            <p class="parrafoConsumo">20€</p>
+                            <button class="checkinState r123456" type="button" onclick="checkinRealizado(this)"></button>
+                        </li>
+                        <li class="liInfoGastos">
+                            <p class="parrafoTipoConsumo">Ron</p>
+                            <p class="parrafoConsumo">20€</p>
+                            <button class="checkinState r123456" type="button" onclick="checkinRealizado(this)"></button>
+                        </li>
+                    </ul>
+                    <button class="botonVolverInicio" onclick="cargarInicio()">Volver al incio</button>
+                </article>
+        </section>
+        
+    </main>
+    <footer>
+        <p class="copyrigth">Hoteles Sostenibles © 2024 </p>
+    </footer>
+    <script src="../../../js/dashboardHotel/dashboardReserva.js"></script>
+</body>
+</html>
+
+
+
+
