@@ -13,8 +13,7 @@
 
     <header class="logoCabecera">
         <img class="lineaCabecera" src="../css/imagenes/linea.webp" alt="Línea Cabecera">
-        <h1>Aquí va el logo del hotel</h1>
-        <!--<img class="logoHotel" src="../css/imagenes/logoWeb.png" alt="Logo Hoteles Sostenibles">-->
+        <img class="logoHotel" src="../css/imagenes/logoHotel.png" alt="Logo Hotel">
         <img class="lineaCabecera" src="../css/imagenes/linea.webp" alt="Línea Cabecera">
     </header>
 
@@ -22,14 +21,14 @@
     <main>
         <section class="formularioContainer">
                 <!--Calendario-->
-                <div id="calendar">
+                <div id="calendario">
                     <div class="header">
-                      <button id="prevMonth" onclick="actualizarMes('atras')" type="button">&lt;</button>
-                      <h2 id="monthYear"></h2>
-                      <button id="nextMonth" onclick="actualizarMes('next')" type="button">&gt;</button>
+                      <button id="mesPrevio" onclick="actualizarMes('atras')" type="button">&lt;</button>
+                      <h2 id="mesAnno"></h2>
+                      <button id="mesSiguiente" onclick="actualizarMes('next')" type="button">&gt;</button>
                     </div>
                     
-                    <div id="calendarDays" class="calendar-days"></div>
+                    <div id="calendarioDias" class="calendario-dias"></div>
                   </div>
 
                 <!--Cierre del calendario-->
@@ -93,7 +92,7 @@
 
 
     <script src="../js/calendario.js"></script>
-    <script src="../js/index.js"></script>
+    <script src="../js/webHotel.js"></script>
 
 
 </body>

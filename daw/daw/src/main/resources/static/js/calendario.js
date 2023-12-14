@@ -3,13 +3,13 @@
   const intervaloFechas= [];
 
   function generarCalendario(fecha) {
-      const calendarDays = document.getElementById('calendarDays');
-      const monthYear = document.getElementById('monthYear');
+      const calendarioDias = document.getElementById('calendarioDias');
+      const mesAnno = document.getElementById('mesAnno');
 
-      const firstDayOfMonth = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
-      const lastDayOfMonth = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0);
+      const primerDiaMes = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
+      const ultimoDiaMes = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0);
   
-      monthYear.textContent = `${getMonthName(fecha.getMonth())} ${fecha.getFullYear()}`;
+      mesAnno.textContent = `${getMonthName(fecha.getMonth())} ${fecha.getFullYear()}`;
       
       let calendarHTML = '';
       
@@ -19,27 +19,27 @@
         calendarHTML += `<p class="diaCelda dias">${obtenerDiaSemana(i)}</p>`;
       }
   
-      // Determine the day of the week for the first day of the month
-      let firstDayOfWeek = firstDayOfMonth.getDay();
+      // Determine the day of the week for the first day of the mes
+      let primerDiaSemana = primerDiaMes.getDay();
   
       // Adjust the position of the first day in the grid
-      if (firstDayOfWeek === 0) {
-        firstDayOfWeek = 7; // If Sunday, set it to 7
+      if (primerDiaSemana === 0) {
+        primerDiaSemana = 7; // If Sunday, set it to 7
       }
       
-      // Fill in the rest of the days of the month
+      // Fill in the rest of the days of the mes
       const fechaActual = new Date();
       const fechaCalendario = new Date(fecha.getFullYear(), fecha.getMonth());
      
      
-      for (let i = 1; i <= lastDayOfMonth.getDate(); i++) {
+      for (let i = 1; i <= ultimoDiaMes.getDate(); i++) {
         
     
           if(i === 1)
           {
-            if((fechaActual.getFullYear() === fechaCalendario.getFullYear()) && (fechaCalendario.getMonth() === fechaActual.getMonth()) &&  (fechaActual.getDate() === 1))  calendarHTML += `<button class="diaCelda diaActual" type="button" onclick = "fechaSeleccionada(this)" style="grid-column: ${firstDayOfWeek}">1</button>`;
-            else if(fechaCalendario < fechaActual) calendarHTML += `<button class="diaCelda diaPasado" type="button" style="grid-column: ${firstDayOfWeek}">1</button>`; 
-            else calendarHTML += `<button class="diaCelda" type="button" onclick = "fechaSeleccionada(this)" style="grid-column: ${firstDayOfWeek}">1</button>`;
+            if((fechaActual.getFullYear() === fechaCalendario.getFullYear()) && (fechaCalendario.getMonth() === fechaActual.getMonth()) &&  (fechaActual.getDate() === 1))  calendarHTML += `<button class="diaCelda diaActual" type="button" onclick = "fechaSeleccionada(this)" style="grid-column: ${primerDiaSemana}">1</button>`;
+            else if(fechaCalendario < fechaActual) calendarHTML += `<button class="diaCelda diaPasado" type="button" style="grid-column: ${primerDiaSemana}">1</button>`; 
+            else calendarHTML += `<button class="diaCelda" type="button" onclick = "fechaSeleccionada(this)" style="grid-column: ${primerDiaSemana}">1</button>`;
           }
           else if(fechaCalendario.getFullYear() === fechaActual.getFullYear() && fechaCalendario.getMonth() === fechaActual.getMonth() && i === fechaActual.getDate()){
             calendarHTML += `<button class="diaCelda diaActual" type="button" onclick = "fechaSeleccionada(this)">${fechaActual.getDate()}</button>`;
@@ -54,13 +54,13 @@
           }
           else calendarHTML += `<button class="diaCelda" type="button" onclick = "fechaSeleccionada(this)">${i}</button>`;
       }
-      calendarDays.innerHTML = calendarHTML;
+      calendarioDias.innerHTML = calendarHTML;
     }
     
     function fechaSeleccionada(boton){
       const formularioReserva = document.querySelector(".formularioReserva");
       const dia = boton.textContent;
-      const mesYear = document.getElementById("monthYear").textContent;
+      const mesYear = document.getElementById("mesAnno").textContent;
       const year = mesYear.split(" ")[1];
       const mes = convertirMes(mesYear.split(" ")[0]);
       const fecha = `${dia}-${mes + 1}-${year}`;
@@ -95,9 +95,9 @@
        }
     }
 
-    function getMonthName(month) {
-      const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-      return monthNames[month];
+    function getMonthName(mes) {
+      const nombreMes = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+      return nombreMes[mes];
     }
   
     function obtenerDiaSemana(diaIndex) {
@@ -107,7 +107,7 @@
   
 
   function actualizarMes(direccion) {
-    const mesYear = document.getElementById("monthYear").textContent;
+    const mesYear = document.getElementById("mesAnno").textContent;
     const year = mesYear.split(" ")[1];
     const mes = convertirMes(mesYear.split(" ")[0]);
       if (direccion === 'next') {
@@ -123,5 +123,3 @@
     const mesNumero = {Enero:0, Febrero:1, Marzo:2, Abril:3, Mayo:4, Junio:5, Julio:6, Agosto:7, Septiembre:8, Octubre:9, Noviembre:10, Diciembre:11};
     return mesNumero[mes];
   }
-
- 

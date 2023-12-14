@@ -31,7 +31,7 @@ body{
 }
 .logoHotel{
     height: 100%;
-    width: 300px;
+    width: 200px;
 }
 .lineaCabecera{
     height: 50%;
@@ -45,9 +45,7 @@ main{
     flex-grow: 1;
     gap: 40px;
 }
-.formularioContainer{
-    padding:25px;
-}
+
 .infoReservaContainer{
     display: flex;
     flex-direction: column;
@@ -57,7 +55,7 @@ main{
     text-align: center;
 }
 /*calendario*/
-#calendar {
+#calendario {
     max-width: 300px;
     margin:  10px;
   }
@@ -69,7 +67,7 @@ main{
     margin-bottom: 10px;
   }
 
-#monthYear {
+#mesAnno {
     font-size: 1.5em;
   }
 .diaCelda.diaActual{
@@ -103,7 +101,7 @@ main{
     background: linear-gradient(45deg, rgba(121,118,9,0.6924019607843137) 33%, rgba(192,204,171,1) 100%);
     /*background-color: #8ae68fc9;*/
 }
-.calendar-days {
+.calendario-dias {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     width: 314px; 
@@ -111,7 +109,7 @@ main{
 .current-month {
     background-color: #fff;
   }
-#prevMonth,#nextMonth {
+#mesPrevio,#mesSiguiente {
     font-size: 1em;
     cursor: pointer;
     width: 37px;
