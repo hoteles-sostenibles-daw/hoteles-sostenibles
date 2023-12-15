@@ -1,0 +1,269 @@
+html{
+    height: 100%;
+    margin: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    margin: 0;
+    background: linear-gradient(180deg, rgb(246, 246, 242) 69%, rgb(192, 171, 104) 100%);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    gap: 50px;
+    font-family: 'Trebuchet MS',  sans-serif;
+    color: #2D442E;
+}
+.imagenCabecera{
+    width: 100vw;
+    height: 150px;
+    padding: 15px;
+    background: url("../css/imagenes/forest.jpg") center;
+    border-radius: 0 0 150% 150%;
+    opacity: 0.8;
+}
+.logoCabecera{
+    display: flex;
+    width: 100vw;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+}
+.logoHotel{
+    height: 100%;
+    width: 200px;
+}
+.lineaCabecera{
+    height: 50%;
+    width: 35%;
+}
+main{
+    display: flex;
+    justify-content: center; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    gap: 40px;
+}
+
+.infoReservaContainer{
+    display: flex;
+    flex-direction: column;
+    border: 1px;
+    padding: 25px;
+    align-items: center;
+    text-align: center;
+}
+/*calendario*/
+#calendario {
+    max-width: 300px;
+    margin:  10px;
+  }
+.header {
+    width: 314px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+#mesAnno {
+    font-size: 1.5em;
+  }
+.diaCelda.diaActual{
+    border:3px solid #8ea825;
+  }
+.diaCelda.diaPasado{
+    background: linear-gradient(45deg, rgba(226,100,100,0.6307773109243697) 33%, rgba(244,238,238,1) 100%);
+    
+  }
+.diaCelda.diaPasado:hover{
+    background: linear-gradient(45deg, rgba(226,100,100,0.6307773109243697) 33%, rgba(244,238,238,1) 100%);
+}
+.diaCelda.dias {
+    background-color: #f2f2f2;  
+  }
+.diaCelda {
+    background-color: transparent;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    text-align: center;
+    width: 45px;
+    height: 45px;
+  }
+.diaCelda.dias:hover{
+    background-color: #f2f2f2;
+    background: #f2f2f2;
+}
+.diaCelda:hover{
+    background: linear-gradient(45deg, rgba(121,118,9,0.6924019607843137) 33%, rgba(192,204,171,1) 100%);
+    /*background-color: #8ae68fc9;*/
+}
+.calendario-dias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 314px; 
+  }
+.current-month {
+    background-color: #fff;
+  }
+#mesPrevio,#mesSiguiente {
+    font-size: 1em;
+    cursor: pointer;
+    width: 37px;
+    height: 30px;
+   
+  }
+.fechaSeleccionada{
+    background: linear-gradient(45deg, rgba(121,118,9,0.6924019607843137) 33%, rgba(192,204,171,1) 100%);
+}
+/*calendario*/
+.hidden{
+    display: none;
+}
+.reservaContainer{
+    font-size: 20px;
+}
+.numeroReservaContainer{
+    width: 75%;
+    text-align: center;
+}
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+input {
+    width: 240px; 
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+.inputNumeroPersonas{
+    width: 40px;
+}
+.fechaEntrada,.fechaSalida{
+    cursor: default;
+    width: 75px;
+}
+.fechaSalida{
+    position: relative;
+    left: 13px;
+}
+.checkButton{
+    background-color: transparent;
+    padding: 15 30px;
+    border: solid 1px;
+    border-radius: 5px;
+    color: #2D442E;
+    height: 120px;
+    width: 150px;
+}
+.checkButton:hover{
+    background-color: #A8A838;
+}
+.divBotonEnviarFormulario{
+    text-align: center;
+}
+.botonEnviarFormulario{
+    background-color: transparent;
+    padding: 10px;
+    border: solid 1px;
+    border-radius: 5px;
+    color: #2D442E;
+    width: 100px;   
+}
+.botonEnviarFormulario:hover{
+    background-color: #A8A838;
+}
+.aviso{
+    color: red;
+}
+.email{
+    position: relative;
+    left: 15px;
+}
+.nombre{
+    position: relative;
+    left: 6px;
+}
+
+.footerContainer{
+    width: 100vw;
+    display:flex;
+    align-items: center;
+    flex-wrap:wrap;
+    background-color:transparent;
+    margin-top: auto;
+    flex-direction: column;
+
+}
+.footerInfoContainer{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.footerInfo{
+    padding-top: 30px;
+}
+.footerIconos{
+    display: flex;
+    gap: 20px;
+    padding-top: 40px;
+    width: 260px
+
+}
+ul{
+    margin:0;
+    padding: 0;
+}
+li{
+    list-style: none;
+    line-height: 30px;
+}
+.footerImagen{
+    width: 50px;
+    height: 50px;
+}
+.iconos{
+    width: 40px;
+    height: 40px
+}
+
+.iconos:hover{
+    width: 50px;
+    height: 50px;
+}
+a {
+    text-decoration: none;
+    color:#2D442E ;
+
+}
+a:hover{
+    color: rgb(246, 246, 242) 
+
+}
+.footerPoliticas{
+    padding-top: 30px;
+    line-height: 25px;
+
+}
+.copyrigth{
+    font-size: 0.75rem;
+
+}
+.parrafoPoliticas{
+    margin: 0;
+}
+
+
+
+
+
+
+
+

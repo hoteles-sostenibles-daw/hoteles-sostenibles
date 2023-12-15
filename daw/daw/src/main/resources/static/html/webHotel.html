@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/webHotel.css">
+    <title>Web Hotel</title>
+</head>
+<body onload="generarCalendario(new Date())">
+    <header class="imagenCabecera">
+       
+    </header>
+
+    <header class="logoCabecera">
+        <img class="lineaCabecera" src="../css/imagenes/linea.webp" alt="Línea Cabecera">
+        <img class="logoHotel" src="../css/imagenes/logoHotel.png" alt="Logo Hotel">
+        <img class="lineaCabecera" src="../css/imagenes/linea.webp" alt="Línea Cabecera">
+    </header>
+
+
+    <main>
+        <section class="formularioContainer">
+                <!--Calendario-->
+                <div id="calendario">
+                    <div class="header">
+                      <button id="mesPrevio" onclick="actualizarMes('atras')" type="button">&lt;</button>
+                      <h2 id="mesAnno"></h2>
+                      <button id="mesSiguiente" onclick="actualizarMes('next')" type="button">&gt;</button>
+                    </div>
+                    
+                    <div id="calendarioDias" class="calendario-dias"></div>
+                  </div>
+
+                <!--Cierre del calendario-->
+        </section>
+
+        <form onsubmit="enviarFormulario(event)">
+            <section class="formularioReserva hidden" >
+                <h3>Haz tu reserva</h3>
+            
+                <div class="divFechaEntrada"><span>Fecha entrada: </span> <input class="fechaEntrada" type="text"  readonly /></div> 
+                <div class="hidden divFechaSalida"><span>Fecha salida: </span> <input class="fechaSalida" type="text"  readonly /></div>
+                
+                <p>Precio por noche 50€ </p> 
+            
+                <label>Personas <input class="inputNumeroPersonas" type="number" min="1" max="5" name="numeroPersonas"/> </label>
+                
+                <label>Nombre <input type="text" class="nombre"/> </label>
+                
+                <label>E-mail <input type="email" class="email"/> </label>
+                
+                <label>Teléfono <input type="text" class="telefono"/> </label>
+                <p class="aviso hidden">Por favor rellene todos los campos y seleccione dos fechas</p>
+                <div class="divBotonEnviarFormulario"><button class="botonEnviarFormulario">Enviar</button></div>
+            </section>
+        </form>
+    </main>
+
+    <footer class="footerContainer">
+        <section class="footerInfoContainer"> 
+            <article class="footerInfo">
+                <ul>
+                <li>Nombre del hotel</li>
+                <li>Dirección del hotel</li>
+                <li>Teléfono </li>
+                <li>Correo electrónico</li>
+                </ul> 
+            </article>
+
+            <article class="footerIconos" >
+                <div class="footerImagen">
+                    <img class="iconos" src="../css/imagenes/instagram.png" alt="logo instagram">
+                </div>
+                <div class="footerImagen">
+                    <img class="iconos" src="../css/imagenes/Facebook.png" alt="logo facebook">
+                </div>
+                <div class="footerImagen">
+                    <img class="iconos" src="../css/imagenes/logoTwiter.png" alt="logo X">
+                </div>
+            </article>
+
+            <article class="footerPoliticas">
+                <p class="parrafoPoliticas"><a href="">Política de privacidad </a></p>
+                <p class="parrafoPoliticas"><a href="">Política de cookies  </a></p>
+                <p class="parrafoPoliticas"><a href="">Aviso legal  </a></p>
+            </article>
+        </section>
+
+        <p class="copyrigth">Hoteles Sostenibles © 2024 </p>
+        
+    </footer>
+
+
+    <script src="../js/calendario.js"></script>
+    <script src="../js/webHotel.js"></script>
+
+
+</body>
+</html>
