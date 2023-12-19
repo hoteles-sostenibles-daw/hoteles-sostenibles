@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS hoteles_sosotenibles_db;
+CREATE DATABASE IF NOT EXISTS hoteles_sostenibles_db;
 USE hoteles_sostenibles_db;
 
 CREATE TABLE IF NOT EXISTS hotel (
