@@ -1,4 +1,6 @@
 {
     "liveServer.settings.port": 81,
-    "workbench.colorTheme": "Solarized Dark"
+    "workbench.colorTheme": "Default Dark Modern",
+    "java.compile.nullAnalysis.mode": "disabled",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

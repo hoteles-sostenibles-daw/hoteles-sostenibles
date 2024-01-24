@@ -101,6 +101,14 @@ input{
     background-color:rgb(192, 171, 104);
 }
 
+.solicitudCorrecta{
+    color:green;
+}
+
+.solicitudIncorrecta{
+    color:red;
+}
+
 .footerContainer{
     width: 100vw;
     display:flex;
