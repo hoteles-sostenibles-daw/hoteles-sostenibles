@@ -17,5 +17,5 @@ public class HuespedModel {
     @Column
     private String telefono;
     @Column
-    private String personaContacto;
+    private String persona_contacto;
 }

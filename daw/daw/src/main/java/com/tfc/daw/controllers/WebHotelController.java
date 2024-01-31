@@ -1,7 +1,5 @@
 package com.tfc.daw.controllers;
 
-import java.text.ParseException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
@@ -24,7 +22,7 @@ public class WebHotelController {
     }
 
     @PostMapping("/reserva")
-    public void gestionarDatosReserva(@RequestBody DatosFrontend body) throws ParseException {
+    public void gestionarDatosReserva(@RequestBody DatosFrontend body) {
         this.webHotelService.gestionarDatosReserva(body);
 
     }

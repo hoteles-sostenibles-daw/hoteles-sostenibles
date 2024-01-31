@@ -1,7 +1,5 @@
 package com.tfc.daw.models;
 
-import java.util.Date;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -15,19 +13,19 @@ public class ReservaModel {
     @Id
     private String codigo;
     @Column
-    private Date fechaEntrada;
+    private String fecha_entrada;
     @Column
-    private Date fechaSalida;
+    private String fecha_salida;
     @Column
     private String check_in;
     @Column
     private String check_out;
     @Column
-    private int numeroHuespedes;
+    private int numero_huespedes;
     @Column
-    private String hotelNombre;
+    private String hotel_nombre;
     @Column
-    private String huespedDni;
+    private String huesped_dni;
     @Column
-    private String habitacionNumero;
+    private String habitacion_numero;
 }
