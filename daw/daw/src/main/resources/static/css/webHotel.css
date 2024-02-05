@@ -147,7 +147,7 @@ input {
 }
 .fechaEntrada,.fechaSalida{
     cursor: default;
-    width: 75px;
+    width: 120px;
 }
 .fechaSalida{
     position: relative;
