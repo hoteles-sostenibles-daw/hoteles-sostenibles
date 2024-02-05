@@ -1,8 +1,12 @@
 package com.tfc.daw.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.tfc.daw.emailHandler.EmailDetails;
+import com.tfc.daw.emailHandler.EmailService;
 import com.tfc.daw.models.DatosFrontend;
 import com.tfc.daw.models.HuespedModel;
 import com.tfc.daw.models.ReservaModel;
@@ -15,12 +19,16 @@ public class WebHotelService {
     private HuespedRepository huespedRepository;
     @Autowired
     private ReservaRepository reservaRepository;
+    @Autowired
+    private EmailService emailService;
 
     public void gestionarDatosReserva(DatosFrontend body) {
-
-        this.huespedRepository.save(crearHuesped(body));
+        Optional<HuespedModel> huesped = this.huespedRepository.findById(body.getDni());
+        if (!huesped.isPresent()) {
+            this.huespedRepository.save(crearHuesped(body));
+        }
         this.reservaRepository.save(crearReserva(body));
-
+        this.emailService.sendEmailLanding(crearEmailInfoReserva(body));
     }
 
     private ReservaModel crearReserva(DatosFrontend body) {
@@ -51,6 +59,28 @@ public class WebHotelService {
         huesped.setTelefono(body.getTelefono());
         huesped.setPersona_contacto(body.getNombrePersona());
         return huesped;
+
+    }
+
+    private EmailDetails crearEmailInfoReserva(DatosFrontend body) {
+        String codigo = crearCodigo(body.getDni(), body.getFechaEntrada(), body.getFechaSalida());
+        EmailDetails email = new EmailDetails();
+        email.setRecipient(body.getEmail());
+        email.setSubject("Información de la reserva");
+        email.setMsgBody("Nombre del hotel: Hotel AC Balagares " + "\n" +
+                "Código de la reserva: " + codigo + "\n" +
+                "DNI:" + body.getDni() + "\n" +
+                "Fecha de Entrada: " + body.getFechaEntrada() + "\n" +
+                "Fecha de Salida: " + body.getFechaSalida() + "\n" +
+                "Número de personas: " + body.getNumeroPersonas() + "\n" +
+                "Si prefiere hacer el check in online, pulse el siguiente enlace como mínimo 15 minutos antes de su llegada: http://localhost:8080/checkin"
+                + codigo + "\n" +
+                "Para finalizar su check in debe enviarnos una foto de su DNI como respuesta a este email" + "\n" +
+                "Una vez realizados estos pasos recoja su llave en recepción"
+                + "\n\n" +
+
+                "Para más información póngase en contacto con hoteles.sostenibles.info@gmail.com o en el siguiente número de teléfono +34 6890005733  ");
+        return email;
 
     }
 }
