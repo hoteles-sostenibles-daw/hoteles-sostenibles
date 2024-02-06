@@ -1,28 +1,27 @@
 package com.tfc.daw.controllers.dashboardHotel;
 
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.tfc.daw.models.DatosEntradaSalidaDTO;
+import com.tfc.daw.models.ReservaModel;
+import com.tfc.daw.services.gestionReservas.GestionDatosReservaService;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 public class DashboardHotelController {
-    
-    @GetMapping("/gestionreservas")
-    public Resource gestionReservas(){
-        return new ClassPathResource("/static/html/dashboardHotel/gestionReserva/dashboardGestionReservas.html");
+    @Autowired
+    private GestionDatosReservaService gestionDatosReservaService;
+
+    @PostMapping("/fechareserva")
+    public ArrayList<ReservaModel> obtenerDatosFecha(@RequestBody String fecha) {
+
+        return this.gestionDatosReservaService.obtenerDatosFecha(fecha);
+
     }
-    @GetMapping("/gestionreservas/reserva-{numReserva}")
-    public Resource infoReserva(@PathVariable int numReserva){
-        return new ClassPathResource("/static/html/dashboardHotel/gestionReserva/dashboardInfoReserva.html");
-    }
-    @GetMapping("/gestionreservas/habitacion-{numHabitacion}")
-    public Resource infoGastos(@PathVariable int numHabitacion){
-        return new ClassPathResource("/static/html/dashboardHotel/gestionReserva/dashboardInfoGastos.html");
-    }
-    @GetMapping("/gastos")
-    public Resource infoGastos(){
-        return new ClassPathResource("/static/html/dashboardHotel/gestionGastos/dashboardGastos.html");
-    }
+
 }
