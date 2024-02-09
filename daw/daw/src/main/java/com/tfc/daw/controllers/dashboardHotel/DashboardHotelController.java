@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tfc.daw.models.DatosEntradaSalidaDTO;
@@ -14,6 +17,9 @@ import com.tfc.daw.services.gestionReservas.GestionDatosReservaService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 public class DashboardHotelController {
@@ -37,6 +43,13 @@ public class DashboardHotelController {
 
         return this.gestionDatosReservaService.obtenerFechaSalida(fecha);
 
+    }
+
+    @PutMapping("/actualizarcheckin/{codigoReserva}")
+    public ResponseEntity<String> actualizarCheckIn( @PathVariable String codigoReserva) {
+       System.out.println(codigoReserva);
+        this.gestionDatosReservaService.actualizarCheckIn(codigoReserva);
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
 
 }

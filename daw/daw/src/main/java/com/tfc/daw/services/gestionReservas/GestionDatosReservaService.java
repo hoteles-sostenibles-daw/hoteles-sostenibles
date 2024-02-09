@@ -1,6 +1,7 @@
 package com.tfc.daw.services.gestionReservas;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,6 +51,32 @@ public class GestionDatosReservaService {
         }
 
         return listaSalidasFront;
+    }
 
+    public void actualizarCheckIn(String codigoReserva){
+        Optional<ReservaModel> reserva = obtenerReservaPorId(codigoReserva);
+        if(reserva.isPresent()){
+            this.reservaRepository.save(deOptionalAObjeto(reserva));
+        } 
+    } 
+
+    private Optional<ReservaModel> obtenerReservaPorId(String codigoReserva){
+        Optional<ReservaModel> reserva = this.reservaRepository.findById(codigoReserva);
+        return reserva;
+    }
+
+    private ReservaModel deOptionalAObjeto(Optional<ReservaModel> reserva){
+        ReservaModel reservaObjeto= new ReservaModel();
+        reservaObjeto.setCodigo(reserva.get().getCodigo());
+        reservaObjeto.setFecha_entrada(reserva.get().getFecha_entrada());
+        reservaObjeto.setFecha_salida(reserva.get().getFecha_salida());
+        reservaObjeto.setCheck_in("S");
+        reservaObjeto.setCheck_out(reserva.get().getCheck_out());
+        reservaObjeto.setNumero_huespedes(reserva.get().getNumero_huespedes());
+        reservaObjeto.setHotel_nombre(reserva.get().getHotel_nombre());
+        reservaObjeto.setHuesped_dni(reserva.get().getHuesped_dni());
+        reservaObjeto.setHabitacion_numero(reserva.get().getHabitacion_numero());
+        System.out.println(reservaObjeto);
+        return reservaObjeto;
     }
 }
