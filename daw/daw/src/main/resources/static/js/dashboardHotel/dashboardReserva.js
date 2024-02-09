@@ -1,8 +1,46 @@
+
+const url = "http://localhost:8080/";
+
 // obtener fecha actual
+
+
 function funcionesInicioGestionReservas()
 {
+
     fechaActual();
+    reservasFechaEntrada()
     comprobarEstadoCheckin()
+}
+// manejar fechas
+async function reservasFechaEntrada()
+{
+    try{
+        const fechaEntrada= document.querySelector('.spanFecha').textContent;
+        const response = await fetch(`${url}fechaentrada`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/plain'
+            },
+            body: fechaEntrada
+
+        })
+
+        if(!response.ok)
+        {
+          
+           
+            throw new Error(`Error HTTP ${response.status}`)
+        }
+       const data= await response.json();
+       console.log(data);
+       
+    } 
+
+    catch(error)
+    {
+        
+        console.log(error)
+    }
 }
 // componentes
 function cargarGestionReserva()
@@ -26,25 +64,10 @@ function fechaActual()
 {
     const spanFecha = document.querySelectorAll('.spanFecha');
     for(const span of spanFecha){
-        span.textContent = `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`;
+        span.textContent = `${new Date().getDate()}-${new Date().getMonth()+1}-${new Date().getFullYear()}`;
     }
 }
 
-//info reserva
-// function funcionesInicioInfoReserva()
-// {
-//     const numReserva = window.location.href.split('-')[1];
-//     document.querySelector('.spanNumReserva').textContent = numReserva;
-// }
-
-//info reserva
-// function funcionesInicioInfoGastos()
-// {
-//     const numHabitacion = window.location.href.split('-')[1];
-//     document.querySelector('.spanNumHabitacion').textContent = numHabitacion;
-// }
-
-//revisar checkin
 function comprobarEstadoCheckin()
 {
     const check = true;//llamada a la api para verifiar checkin online
