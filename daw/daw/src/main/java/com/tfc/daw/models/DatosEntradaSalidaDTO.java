@@ -4,7 +4,8 @@ import lombok.Data;
 
 @Data
 public class DatosEntradaSalidaDTO {
-    // codigo de reserva
-    // dni
-    // check in
+    private String codigoReserva;
+    private String dni;
+    private String checkIn;
+
 }
