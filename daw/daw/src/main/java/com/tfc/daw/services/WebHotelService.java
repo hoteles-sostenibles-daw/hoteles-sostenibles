@@ -21,6 +21,7 @@ public class WebHotelService {
     private ReservaRepository reservaRepository;
     @Autowired
     private EmailService emailService;
+    
 
     public void gestionarDatosReserva(DatosFrontend body) {
         Optional<HuespedModel> huesped = this.huespedRepository.findById(body.getDni());
@@ -73,7 +74,7 @@ public class WebHotelService {
                 "Fecha de Entrada: " + body.getFechaEntrada() + "\n" +
                 "Fecha de Salida: " + body.getFechaSalida() + "\n" +
                 "Número de personas: " + body.getNumeroPersonas() + "\n" +
-                "Si prefiere hacer el check in online, pulse el siguiente enlace como mínimo 15 minutos antes de su llegada: http://localhost:8080/checkin"
+                "Si prefiere hacer el check in online, pulse el siguiente enlace como mínimo 15 minutos antes de su llegada: http://localhost:8080/actualizarcheckin/"
                 + codigo + "\n" +
                 "Para finalizar su check in debe enviarnos una foto de su DNI como respuesta a este email" + "\n" +
                 "Una vez realizados estos pasos recoja su llave en recepción"

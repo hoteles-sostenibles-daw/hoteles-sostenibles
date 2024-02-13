@@ -1,13 +1,19 @@
 package com.tfc.daw.services.gestionReservas;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.tfc.daw.emailHandler.EmailDetails;
+import com.tfc.daw.emailHandler.EmailService;
 import com.tfc.daw.models.DatosEntradaSalidaDTO;
+import com.tfc.daw.models.HuespedModel;
 import com.tfc.daw.models.ReservaModel;
+import com.tfc.daw.repositories.webHotel.HuespedRepository;
 import com.tfc.daw.repositories.webHotel.ReservaRepository;
 
 @Service
@@ -15,6 +21,10 @@ import com.tfc.daw.repositories.webHotel.ReservaRepository;
 public class GestionDatosReservaService {
     @Autowired
     private ReservaRepository reservaRepository;
+    @Autowired
+    private HuespedRepository huespedRepository;
+      @Autowired
+    private EmailService emailService;
 
     public ArrayList<DatosEntradaSalidaDTO> obtenerFechaEntrada(String fecha) {
 
@@ -53,12 +63,40 @@ public class GestionDatosReservaService {
         return listaSalidasFront;
     }
 
-    public void actualizarCheckIn(String codigoReserva){
+    private String obtenerEmail(String dni){
+        Optional<HuespedModel> huesped = this.huespedRepository.findById(dni);
+        return huesped.get().getEmail();
+    }
+
+    private String convertirFecha(){
+        Date fechaActual = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("d-M-yyyy");
+        String fechaFormateada = formato.format(fechaActual);
+        return fechaFormateada;
+    }
+
+    public String actualizarCheckIn(String codigoReserva){
         Optional<ReservaModel> reserva = obtenerReservaPorId(codigoReserva);
         if(reserva.isPresent()){
-            this.reservaRepository.save(deOptionalAObjeto(reserva));
-        } 
+            if(convertirFecha().equals(reserva.get().getFecha_entrada()) && reserva.get().getCheck_in().equals("N")){
+                this.reservaRepository.save(deOptionalAObjeto(reserva));
+                this.emailService.sendEmailLanding(envioGuiaPractica(obtenerEmail(reserva.get().getHuesped_dni())));
+                return "Checkin realizado correctamente. No se olvide de enviar la foto del DNI";
+            }
+            else{
+                return "La fecha de la reserva no es válida. Debe hacer el checkin el día " + reserva.get().getFecha_entrada();
+            }   
+        }
+        return "El código de reserva no existe"; 
     } 
+
+    private EmailDetails envioGuiaPractica(String emailHuesped){
+        EmailDetails email = new EmailDetails();
+        email.setRecipient(emailHuesped);
+        email.setSubject("Guía de buenas prácticas en sostenibilidad");
+        email.setMsgBody("Enlace a la guía" );
+        return email;
+    }
 
     private Optional<ReservaModel> obtenerReservaPorId(String codigoReserva){
         Optional<ReservaModel> reserva = this.reservaRepository.findById(codigoReserva);

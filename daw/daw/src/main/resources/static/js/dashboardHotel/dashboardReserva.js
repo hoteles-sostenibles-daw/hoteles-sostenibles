@@ -122,7 +122,7 @@ async function  checkinRealizado(boton)
             const numReserva = boton.getAttribute("class").split(" ")[1];
             console.log(numReserva);
             const response = await fetch(`${url}actualizarcheckin/${numReserva}`, {
-                method: 'PUT',
+                method: 'GET',
              /* headers: {
                     'Content-Type': 'text/plain'
                 },

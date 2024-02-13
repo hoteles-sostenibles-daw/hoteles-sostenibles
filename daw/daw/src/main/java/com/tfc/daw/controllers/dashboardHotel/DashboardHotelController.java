@@ -45,11 +45,10 @@ public class DashboardHotelController {
 
     }
 
-    @PutMapping("/actualizarcheckin/{codigoReserva}")
-    public ResponseEntity<String> actualizarCheckIn( @PathVariable String codigoReserva) {
+    @GetMapping("/actualizarcheckin/{codigoReserva}")
+    public String actualizarCheckIn( @PathVariable String codigoReserva) {
        System.out.println(codigoReserva);
-        this.gestionDatosReservaService.actualizarCheckIn(codigoReserva);
-        return new ResponseEntity<String>(HttpStatus.OK);
+        return  this.gestionDatosReservaService.actualizarCheckIn(codigoReserva);
     }
 
 }
