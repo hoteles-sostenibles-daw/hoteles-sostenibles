@@ -87,22 +87,6 @@ function generarLi(listaReservas,tipo){
 </li>*/
 }
 
-// componentes
-function cargarGestionReserva()
-{
-    const numReserva = document.querySelector('.inputNumReserva').value;
-    window.location.href =`http://localhost:8080/gestionreservas/reserva-${(numReserva)}`;
-}
-
-function cargarGestionGastos()
-{
-    const numHabitacion = document.querySelector('.inputNumHabitacion').value;
-    window.location.href =`http://localhost:8080/gestionreservas/habitacion-${(numHabitacion)}`;
-}
-function cargarInicio()
-{
-    window.location.href =`http://localhost:8080/gestionreservas`;
-}
 
 // verificar fecha aActual
 function fechaActual()
@@ -166,4 +150,38 @@ function crearOkCheckin(boton,estado)
    
 }
 
+async function obtenerInfoReserva()
+{
+    try{
+        const codigoReserva = document.querySelector('.inputNumReserva').value
 
+        const response = await fetch(`${url}obtenerinforeserva`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/plain'
+            },
+            body: codigoReserva
+
+        })
+
+        if(!response.ok)
+        {
+            throw new Error(`Error HTTP ${response.status}`)
+        }
+       const data= await response.json();
+        
+       if(data)
+       {
+        window.location.href =`${url}inforeserva/${codigoReserva}`
+       }
+       else
+       {
+        document.querySelector('.aviso').textContent = 'El código de reserva no existe'
+       }
+    } 
+
+    catch(error)
+    {
+        console.log(error)
+    }
+}

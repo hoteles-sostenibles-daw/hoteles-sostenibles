@@ -84,6 +84,10 @@ main
 {
     background-color: rgb(231, 224, 215);
 }
+.aviso{
+    margin-top: 10px;
+    color: red;
+}
 .articleComponenteContainer
 {
     display: flex;
@@ -166,6 +170,10 @@ p{
 {
     width: 500px;
 }
+.hidden{
+    display: none;
+}
+
 .divInfoReservaContainer
 {
     display: flex;

@@ -1,5 +1,6 @@
 package com.tfc.daw.services.gestionReservas;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,6 +16,7 @@ import com.tfc.daw.models.HuespedModel;
 import com.tfc.daw.models.ReservaModel;
 import com.tfc.daw.repositories.webHotel.HuespedRepository;
 import com.tfc.daw.repositories.webHotel.ReservaRepository;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 
@@ -116,5 +118,42 @@ public class GestionDatosReservaService {
         reservaObjeto.setHabitacion_numero(reserva.get().getHabitacion_numero());
         System.out.println(reservaObjeto);
         return reservaObjeto;
+    }
+
+    public Boolean obtenerInfoReserva(String codigoReserva) {
+
+        if(this.reservaRepository.findById(codigoReserva).isPresent())
+        {
+            return true;
+        }
+        return false;
+    }
+    public Optional<ReservaModel> cargarInfoReserva(String codigoReserva) {
+        return this.reservaRepository.findById(codigoReserva);
+    }
+
+    public Optional<HuespedModel> cargarHuespedReserva(String codigoReserva) {
+        Optional<ReservaModel> reserva = this.reservaRepository.findById(codigoReserva);
+        return this.huespedRepository.findById(reserva.get().getHuesped_dni());
+    }
+
+    public void guardarImagen(MultipartFile imagen, String dni) throws IOException {
+        byte[] imagenByte = imagen.getBytes();
+        Optional<HuespedModel> huesped = this.huespedRepository.findById(dni);
+        this.huespedRepository.save(deOptionalAHuesped(huesped, imagenByte));
+    }
+    private HuespedModel deOptionalAHuesped(Optional<HuespedModel> huesped, byte[] imagen){
+        HuespedModel huespedObjeto= new HuespedModel();
+        huespedObjeto.setDni(huesped.get().getDni());
+        huespedObjeto.setEmail(huesped.get().getEmail());
+        huespedObjeto.setTelefono(huesped.get().getTelefono());
+        huespedObjeto.setPersona_contacto(huesped.get().getPersona_contacto());
+        huespedObjeto.setImagen_dni(imagen);
+        return huespedObjeto;
+    }
+
+    public byte[] cargarImagen(String dni) throws IOException {
+        Optional<HuespedModel> huesped = this.huespedRepository.findById(dni);
+        return huesped.get().getImagen_dni();
     }
 }

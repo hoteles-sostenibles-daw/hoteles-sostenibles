@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../../css/dashboardHotel.css">
     
 </head>
-<body onload="funcionesInicioInfoReserva()">
+<body onload="funcionesInicio()">
     <header class="logoContainer">
         <img class="flechaImg" src="../../../img/linea.webp" alt="linea">
         <img class="logoImgFake" src="../../../img/logoFake.png" alt="logo">
@@ -20,30 +20,44 @@
         <section class="infoReservasContainer">
         
                 <article class="articleComponente">
-                    <h3>Nº RESERVA <span class="spanNumReserva">123456</span></h3>
+                    <h3>Nº RESERVA <span class="spanNumReserva"></span></h3>
                     <ul class="ulInfoReserva ulStyleReserva">
                         <li class="liInfoReserva">
                             <div class="divInfoReservaContainer">
                                 <div class="divInfoReserva">
-                                    <span>Fecha Entrada: </span><span>10/10/2023</span>
+                                    <span>Fecha Entrada: </span><span class="infoFechaEntrada"></span>
                                 </div>
                                 <div  class="divInfoReserva">
-                                    <span>Fecha Salida: </span><span>19/10/2023</span>
+                                    <span>Fecha Salida: </span><span class="infoFechaSalida"></span>
                                 </div>
                                 <div class="divInfoReserva">
-                                    <span>Habitación: </span><span>55</span>
+                                    <span>Habitación: </span><span class="numHabitacion"></span>
                                 </div>
                                 <div  class="divInfoReserva">
-                                    <span>Número huéspedes: </span><span>3</span>
+                                    <span>Número huéspedes: </span><span class="numHuespedes"></span>
                                 </div>
                                 <div  class="divInfoReserva">
-                                    <span>Teléfono: </span><span>666666666</span>
+                                    <span>Teléfono: </span><span class="telefono"></span>
                                 </div>
                                 <div  class="divInfoReserva">
-                                    <span>Email: </span><span>example@example.com</span>
+                                    <span>Email: </span><span class="email"></span>
                                 </div>
+                                <div  class="divInfoReserva">
+                                    <span>Check-In: </span><span class="checkin"></span>
+                                </div>
+                                <div  class="divInfoReserva">
+                                    <span>Check-out: </span><span class="checkout"></span>
+                                </div>
+                                <input class="dniOculto"type="hidden">
                             </div>
-                            <img class="imgDNI" src="../../../img/dni/dnir123456.webp" alt="FOTO DNI">
+                            <div class="formGuardarDni">
+                                <label>
+                                    Cargar Imagen
+                                    <input class="imagenDni" type="file">
+                                    <button type="button" onclick="guardarDni()">Subir</button>
+                                </label>
+                            </div>
+                            <img class="imgDni" src="" alt="imgDni">
                         </li>
                     </ul>
                 </article>
@@ -57,25 +71,25 @@
                         <li class="liInfoGastos">
                             <p class="parrafoTipoConsumo">Cocacola</p>
                             <p class="parrafoConsumo">20€</p>
-                            <button class="checkinState r123456" type="button" onclick="checkinRealizado(this)"></button>
+                            <button class="checkinState r123456" type="button" ></button>
                         </li>
                         <li class="liInfoGastos">
                             <p class="parrafoTipoConsumo">Menu dia</p>
                             <p class="parrafoConsumo">20€</p>
-                            <button class="checkinState r123456" type="button" onclick="checkinRealizado(this)"></button>
+                            <button class="checkinState r123456" type="button" ></button>
                         </li>
                         <li class="liInfoGastos">
                             <p class="parrafoTipoConsumo">Desayuno</p>
                             <p class="parrafoConsumo">20€</p>
-                            <button class="checkinState r123456" type="button" onclick="checkinRealizado(this)"></button>
+                            <button class="checkinState r123456" type="button"></button>
                         </li>
                         <li class="liInfoGastos">
                             <p class="parrafoTipoConsumo">Ron</p>
                             <p class="parrafoConsumo">20€</p>
-                            <button class="checkinState r123456" type="button" onclick="checkinRealizado(this)"></button>
+                            <button class="checkinState r123456" type="button" ></button>
                         </li>
                     </ul>
-                    <button class="botonVolverInicio" onclick="cargarInicio()">Volver al incio</button>
+                    <button class="botonVolverInicio" >Volver al incio</button>
                 </article>
         </section>
         
@@ -83,7 +97,7 @@
     <footer>
         <p class="copyrigth">Hoteles Sostenibles © 2024 </p>
     </footer>
-    <script src="../../../js/dashboardHotel/dashboardReserva.js"></script>
+    <script src="../../../js/dashboardHotel/dashboardInfoReserva.js"></script>
 </body>
 </html>
 

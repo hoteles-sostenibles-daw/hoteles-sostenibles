@@ -14,4 +14,20 @@ public class HabitacionModel {
     private int numero;
     @Column
     private String habitacionOcupada;
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getHabitacionOcupada() {
+        return habitacionOcupada;
+    }
+
+    public void setHabitacionOcupada(String habitacionOcupada) {
+        this.habitacionOcupada = habitacionOcupada;
+    }
 }
