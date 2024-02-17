@@ -4,7 +4,6 @@ function funcionesInicio()
 {
     cargarInfoReserva()
     cargarHuespedReserva()
-    cargarImagenDni()
 }
 
 async function cargarInfoReserva()
@@ -29,7 +28,8 @@ async function cargarInfoReserva()
         const data= await response.json();
         
         cargarReservaHtml(data)
-       
+        cargarImagenDni()
+
     } 
 
     catch(error)
@@ -133,9 +133,14 @@ async function cargarImagenDni()
         const data = await response.blob()
         const imagen = URL.createObjectURL(data)
 
-        //mirar si imagen esta o no
-
-        document.querySelector('.imgDni').src = imagen
+        if(data.size > 0){
+            document.querySelector('.imgDni').src = imagen
+        } 
+        else{
+            document.querySelector('.imgDni').setAttribute('class', 'hidden')
+            document.querySelector('.infoDni').textContent = 'No hay ningún DNI guardado'
+        }
+        
     } 
     catch(error)
     {

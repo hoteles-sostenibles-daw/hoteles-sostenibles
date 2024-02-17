@@ -166,9 +166,23 @@ p{
     margin-bottom: 20px;
     flex-wrap: wrap;
 }
-.imgDNI
+.containerImgDni
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 35px;
+}
+.imgDni
 {
     width: 500px;
+}
+.botonGuardarDni{
+    width: 160px;
 }
 .hidden{
     display: none;
