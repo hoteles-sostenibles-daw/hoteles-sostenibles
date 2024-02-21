@@ -39,15 +39,17 @@ public class DashboardHotelController {
     }
     @PostMapping("/fechasalida")
     public ArrayList<DatosEntradaSalidaDTO> obtenerFechaSalida(@RequestBody String fecha) {
-
         return this.gestionDatosReservaService.obtenerFechaSalida(fecha);
-
     }
 
     @GetMapping("/actualizarcheckin/{codigoReserva}")
     public String actualizarCheckIn( @PathVariable String codigoReserva) {
-       System.out.println(codigoReserva);
         return  this.gestionDatosReservaService.actualizarCheckIn(codigoReserva);
+    }
+
+    @GetMapping("/actualizarcheckout/{codigoReserva}")
+    public void actualizarCheckOut( @PathVariable String codigoReserva) {
+        this.gestionDatosReservaService.actualizarCheckOut(codigoReserva);
     }
     @PostMapping("/obtenerinforeserva")
     public Boolean obtenerInfoReserva(@RequestBody String codigoReserva) {

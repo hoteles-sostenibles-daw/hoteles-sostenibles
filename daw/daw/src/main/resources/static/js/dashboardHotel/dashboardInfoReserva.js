@@ -139,6 +139,7 @@ async function cargarImagenDni()
         else{
             document.querySelector('.imgDni').setAttribute('class', 'hidden')
             document.querySelector('.infoDni').textContent = 'No hay ningún DNI guardado'
+            document.querySelector('.divInfoReservaContainer').classList.add('alCentro')
         }
         
     } 

@@ -81,7 +81,7 @@ public class GestionDatosReservaService {
         Optional<ReservaModel> reserva = obtenerReservaPorId(codigoReserva);
         if(reserva.isPresent()){
             if(convertirFecha().equals(reserva.get().getFecha_entrada()) && reserva.get().getCheck_in().equals("N")){
-                this.reservaRepository.save(deOptionalAObjeto(reserva));
+                this.reservaRepository.save(deOptionalAObjeto(reserva, "in"));
                 this.emailService.sendEmailLanding(envioGuiaPractica(obtenerEmail(reserva.get().getHuesped_dni())));
                 return "Checkin realizado correctamente. No se olvide de enviar la foto del DNI";
             }
@@ -92,6 +92,12 @@ public class GestionDatosReservaService {
         return "El código de reserva no existe"; 
     } 
 
+    public void actualizarCheckOut(String codigoReserva){
+        Optional<ReservaModel> reserva = obtenerReservaPorId(codigoReserva);
+        if(reserva.isPresent()){
+            this.reservaRepository.save(deOptionalAObjeto(reserva, "out"));
+        }
+    } 
     private EmailDetails envioGuiaPractica(String emailHuesped){
         EmailDetails email = new EmailDetails();
         email.setRecipient(emailHuesped);
@@ -105,13 +111,21 @@ public class GestionDatosReservaService {
         return reserva;
     }
 
-    private ReservaModel deOptionalAObjeto(Optional<ReservaModel> reserva){
+    private ReservaModel deOptionalAObjeto(Optional<ReservaModel> reserva, String tipoCheck){
         ReservaModel reservaObjeto= new ReservaModel();
         reservaObjeto.setCodigo(reserva.get().getCodigo());
         reservaObjeto.setFecha_entrada(reserva.get().getFecha_entrada());
         reservaObjeto.setFecha_salida(reserva.get().getFecha_salida());
-        reservaObjeto.setCheck_in("S");
-        reservaObjeto.setCheck_out(reserva.get().getCheck_out());
+        if(tipoCheck.equals("in")) {
+            reservaObjeto.setCheck_in("S");
+        } else {
+            reservaObjeto.setCheck_in(reserva.get().getCheck_in());
+        }
+        if(tipoCheck.equals("out")) {
+            reservaObjeto.setCheck_out("S");
+        } else {
+            reservaObjeto.setCheck_out(reserva.get().getCheck_out());
+        }
         reservaObjeto.setNumero_huespedes(reserva.get().getNumero_huespedes());
         reservaObjeto.setHotel_nombre(reserva.get().getHotel_nombre());
         reservaObjeto.setHuesped_dni(reserva.get().getHuesped_dni());

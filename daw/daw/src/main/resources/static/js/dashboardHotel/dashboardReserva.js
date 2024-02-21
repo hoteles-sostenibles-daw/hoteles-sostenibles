@@ -9,6 +9,7 @@ function funcionesInicioGestionReservas()
 
     fechaActual();
     reservasFechaEntrada()
+    reservasFechaSalida()
 }
 // manejar fechas
 async function reservasFechaEntrada()
@@ -31,8 +32,7 @@ async function reservasFechaEntrada()
             throw new Error(`Error HTTP ${response.status}`)
         }
        const data= await response.json();
-       generarLi(data, "entrada");
-
+       generarTR(data, 'entrada')
        
     } 
 
@@ -43,48 +43,71 @@ async function reservasFechaEntrada()
     }
 }
 
-function generarLi(listaReservas,tipo){
+async function reservasFechaSalida()
+{
+    try{
+        const fechaSalida= document.querySelector('.spanFecha').textContent;
+        const response = await fetch(`${url}fechasalida`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/plain'
+            },
+            body: fechaSalida
 
-    let ul ;
+        })
 
-    if(tipo === "entrada"){
-        ul= document.querySelector(".ulCheckin")
+        if(!response.ok)
+        {
+            throw new Error(`Error HTTP ${response.status}`)
+        }
+       const data= await response.json();
+       generarTR(data, 'salida')
+       
+    } 
+
+    catch(error)
+    {
+        
+        console.log(error)
     }
+}
 
-    else if(tipo === "salida"){
-        ul= document.querySelector(".ulCheckout")
-    }
+function generarTR(listaReservas, tipo){
     
+    let table
+   
     for(const reserva of listaReservas){
-        const li = document.createElement("li");
-        li.setAttribute("class","liReserva");
-    
-        const parrafoNumeroReserva = document.createElement("p");
-        parrafoNumeroReserva.textContent = reserva.codigoReserva;
 
-        const parrafoDni = document.createElement("p");
-        parrafoDni.setAttribute("class","parrafoDni");
-        parrafoDni.textContent = reserva.dni;
+        if(tipo === "entrada"){
+            table = document.querySelector('.tableEntradas')
+        }
+        else if(tipo === "salida"){
+            table = document.querySelector('.tableSalidas')
+        }
+
+        const tr = document.createElement("tr")
+        const tdNumReserva = document.createElement("td");
+        const tdNDNI = document.createElement("td");
+        const tdCheckin = document.createElement("td");
+
+        tdNumReserva.textContent = reserva.codigoReserva;
+        tdNDNI.textContent = reserva.dni;
 
         const boton = document.createElement("button");
         boton.setAttribute("class",`checkinState ${reserva.codigoReserva}`)
         boton.setAttribute("type","button")
-        boton.setAttribute("onclick","checkinRealizado(this)")
+        if(tipo === 'entrada')boton.setAttribute("onclick","checkinRealizado(this)")
+        if(tipo === 'salida')boton.setAttribute("onclick","checkoutRealizado(this)")
+        
         crearOkCheckin(boton,reserva.checkIn);
 
-        li.appendChild(parrafoNumeroReserva);
-        li.appendChild(parrafoDni);
-        li.appendChild(boton);
-        ul.appendChild(li);
+        tr.appendChild(tdNumReserva);
+        tr.appendChild(tdNDNI);
+        tdCheckin.appendChild(boton)
+        tr.appendChild(tdCheckin);
+        table.appendChild(tr);
 
     }
-
-
-   /* <li class="liReserva">
-    <p>123456</p>
-    <p class="parrafoDNI">12345678F</p>
-    <button class="checkinState r123456" type="button" onclick="checkinRealizado(this)"></button>
-</li>*/
 }
 
 
@@ -97,20 +120,15 @@ function fechaActual()
     }
 }
 
-
 //checkin hecho
-async function  checkinRealizado(boton)
+async function checkinRealizado(boton)
 {
     if(!boton.hasChildNodes()){
         try{
             const numReserva = boton.getAttribute("class").split(" ")[1];
             console.log(numReserva);
             const response = await fetch(`${url}actualizarcheckin/${numReserva}`, {
-                method: 'GET',
-             /* headers: {
-                    'Content-Type': 'text/plain'
-                },
-                body: numReserva*/
+                method: 'GET'
             })
     
             if(!response.ok)
@@ -130,10 +148,33 @@ async function  checkinRealizado(boton)
     
 }
 //checkout hecho
-function checkoutRealizado(boton)
+async function checkoutRealizado(boton)
 {
-    if(!boton.hasChildNodes()) crearOkCheckin(boton);
+    if(!boton.hasChildNodes()){
+        try{
+            const numReserva = boton.getAttribute("class").split(" ")[1];
+            console.log(numReserva);
+            const response = await fetch(`${url}actualizarcheckout/${numReserva}`, {
+                method: 'GET'
+            })
+    
+            if(!response.ok)
+            {
+                throw new Error(`Error HTTP ${response.status}`)
+            }
+            crearOkCheckin(boton,"S");
+    } 
+    
+    catch(error)
+    {
+        
+        console.log(error)
+    }
+
+    }
+    
 }
+
 //crear ok checkin/out
 function crearOkCheckin(boton,estado)
 {
