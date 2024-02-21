@@ -84,27 +84,28 @@ main
 {
     background-color: rgb(231, 224, 215);
 }
+.aviso{
+    margin-top: 10px;
+    color: red;
+}
 .articleComponenteContainer
 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 50px;
+    width: 100%;
 }
 .articleComponente
 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+
 }
 /* inicio */
-.ulCheckin, .ulCheckout
-{
-    padding: 0;
-    width: 100;
-}
-.liReserva, .liInfoGastos
+
+.liInfoGastos
 {
     display: flex;
     gap: 20px;
@@ -121,15 +122,36 @@ main
 p{
     margin: 0;
 }
+
+table {
+    width: 500px;
+    border: 1px solid #999;
+    text-align: center;
+    border-collapse: collapse;
+    margin: 0 0 1em 0;
+    caption-side: top;
+ }
+ caption, td, th {
+    padding: 0.3em;
+ }
+ th, td {
+    border-bottom: 1px solid #999;
+
+ }
+ 
+ caption {
+    font-weight: bold;
+    font-style: italic;
+ }
+
 .checkinState
 {
     width: 20px;
     height: 20px;
     padding: 0;
     text-align: center;
-    position: relative;
-    right: 15px;
 }
+
 .checkoutState
 {
     width: 20px;
@@ -162,10 +184,28 @@ p{
     margin-bottom: 20px;
     flex-wrap: wrap;
 }
-.imgDNI
+.containerImgDni
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 35px;
+}
+.imgDni
 {
     width: 500px;
 }
+.botonGuardarDni{
+    width: 160px;
+}
+.hidden{
+    display: none;
+}
+
 .divInfoReservaContainer
 {
     display: flex;
@@ -175,6 +215,9 @@ p{
     gap: 15px;
     position: relative;
     top: 7px;
+}
+.alCentro{
+    align-items: center;
 }
 .divInfoReserva
 {

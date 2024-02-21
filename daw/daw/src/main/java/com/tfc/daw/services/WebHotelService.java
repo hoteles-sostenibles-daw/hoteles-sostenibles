@@ -21,6 +21,7 @@ public class WebHotelService {
     private ReservaRepository reservaRepository;
     @Autowired
     private EmailService emailService;
+    
 
     public void gestionarDatosReserva(DatosFrontend body) {
         Optional<HuespedModel> huesped = this.huespedRepository.findById(body.getDni());
@@ -33,7 +34,7 @@ public class WebHotelService {
 
     private ReservaModel crearReserva(DatosFrontend body) {
         ReservaModel reserva = new ReservaModel();
-        reserva.setCodigo(crearCodigo(body.getDni(), body.getFechaEntrada(), body.getFechaSalida()));
+        reserva.setCodigo(crearCodigo(body.getDni(), body.getFechaEntrada()));
         reserva.setFecha_entrada(body.getFechaEntrada());
         reserva.setFecha_salida(body.getFechaSalida());
         reserva.setCheck_in("N");
@@ -45,11 +46,10 @@ public class WebHotelService {
         return reserva;
     }
 
-    private String crearCodigo(String dni, String fechaEntrada, String fechaSalida) {
-        String dniFormateado = dni.substring(0, dni.length() - 1) + dni.substring(dni.length() - 1).toLowerCase();
-        String fechaEntradaFormateada = fechaEntrada.replace("-", "");
-        String fechaSalidaFormateada = fechaSalida.replace("-", "");
-        return dniFormateado + fechaEntradaFormateada + fechaSalidaFormateada;
+    private String crearCodigo(String dni, String fechaEntrada) {
+        String dniFormateado = dni.substring(0, dni.length() - 1) + dni.substring(dni.length() - 1).toUpperCase();
+        String fechaEntradaFormateada = fechaEntrada.replaceAll("-","");
+        return dniFormateado + fechaEntradaFormateada;
     }
 
     private HuespedModel crearHuesped(DatosFrontend body) {
@@ -63,7 +63,7 @@ public class WebHotelService {
     }
 
     private EmailDetails crearEmailInfoReserva(DatosFrontend body) {
-        String codigo = crearCodigo(body.getDni(), body.getFechaEntrada(), body.getFechaSalida());
+        String codigo = crearCodigo(body.getDni(), body.getFechaEntrada());
         EmailDetails email = new EmailDetails();
         email.setRecipient(body.getEmail());
         email.setSubject("Información de la reserva");
@@ -73,7 +73,7 @@ public class WebHotelService {
                 "Fecha de Entrada: " + body.getFechaEntrada() + "\n" +
                 "Fecha de Salida: " + body.getFechaSalida() + "\n" +
                 "Número de personas: " + body.getNumeroPersonas() + "\n" +
-                "Si prefiere hacer el check in online, pulse el siguiente enlace como mínimo 15 minutos antes de su llegada: http://localhost:8080/checkin"
+                "Si prefiere hacer el check in online, pulse el siguiente enlace como mínimo 15 minutos antes de su llegada: http://localhost:8080/actualizarcheckin/"
                 + codigo + "\n" +
                 "Para finalizar su check in debe enviarnos una foto de su DNI como respuesta a este email" + "\n" +
                 "Una vez realizados estos pasos recoja su llave en recepción"
