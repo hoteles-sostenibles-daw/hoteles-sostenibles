@@ -10,7 +10,7 @@ async function contactar(event)
         const nombre = document.querySelector(".nombre").value
         const email = document.querySelector(".email").value
 
-        if(nombre.trim() === '' || !nombre.match(/^[a-zA-Z]+\s[a-zA-Z]+?$/)) {
+        if(nombre.trim() === '' || !nombre.match(/^[a-zA-Z]+$/)) {
             respuesta.textContent = 'Introduzca un nombre válido'
             return
         }

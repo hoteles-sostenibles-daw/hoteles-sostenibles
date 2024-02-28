@@ -13,7 +13,7 @@ public class HabitacionModel {
     @Id
     private int numero;
     @Column
-    private String habitacionOcupada;
+    private String habitacion_ocupada;
 
     public int getNumero() {
         return numero;
@@ -24,10 +24,10 @@ public class HabitacionModel {
     }
 
     public String getHabitacionOcupada() {
-        return habitacionOcupada;
+        return habitacion_ocupada;
     }
 
     public void setHabitacionOcupada(String habitacionOcupada) {
-        this.habitacionOcupada = habitacionOcupada;
+        this.habitacion_ocupada = habitacionOcupada;
     }
 }
