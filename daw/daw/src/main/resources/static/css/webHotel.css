@@ -18,7 +18,7 @@ body{
     width: 100vw;
     height: 150px;
     padding: 15px;
-    background: url("../css/imagenes/forest.jpg") center;
+    background: url("../img/forest.jpg") center;
     border-radius: 0 0 150% 150%;
     opacity: 0.8;
 }
@@ -155,7 +155,7 @@ input {
 }
 .checkButton{
     background-color: transparent;
-    padding: 15 30px;
+    padding: 15px 30px;
     border: solid 1px;
     border-radius: 5px;
     color: #2D442E;
@@ -189,6 +189,11 @@ input {
 .nombre{
     position: relative;
     left: 6px;
+    text-transform: capitalize;
+}
+.dni{
+    position: relative;
+    left: 36px;
 }
 
 .footerContainer{

@@ -6,12 +6,24 @@ async function contactar(event)
     event.preventDefault();
     try{
         const respuesta=document.getElementById("confirmacion");
-       
-        const body={
-            nombre:document.querySelector(".nombre").value,
-            email:document.querySelector(".email").value
-        };
+        
+        const nombre = document.querySelector(".nombre").value
+        const email = document.querySelector(".email").value
 
+        if(nombre.trim() === '' || !nombre.match(/^[a-zA-Z]+\s[a-zA-Z]+?$/)) {
+            respuesta.textContent = 'Introduzca un nombre válido'
+            return
+        }
+        if(email.trim() === '' || !email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+            respuesta.textContent = 'Introduzca un email válido'
+            return
+        }
+
+        const body={
+            nombre: nombre,
+            email: email
+        };
+        
         const response = await fetch(url, {
             method: 'POST',
             headers: {
