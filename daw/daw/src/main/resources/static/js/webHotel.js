@@ -2,7 +2,7 @@ const url= "http://localhost:8080/reserva";
 async function enviarFormulario(event){
 
     event.preventDefault()
-    //try{
+    try{
 
     const campoFechaEntrada = document.querySelector(".fechaEntrada").value.trim();
     const campoFechaSalida = document.querySelector(".fechaSalida").value.trim();
@@ -21,49 +21,50 @@ async function enviarFormulario(event){
         aviso.textContent = 'Introduzca un DNI válido'
         return
     }
+    //TODO validacion telefono mi casa
+    if (campoTelefono.trim() === '' || !campoTelefono.match(/^[0-9]{9}$/)){
+        aviso.textContent = 'Introduzca un teléfono válido'
+        return 
+    }
     if(campoEmail.trim() === '' || !campoEmail.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
         aviso.textContent = 'Introduzca un email válido'
         return
     }
-    //TODO validacion telefono mi casa
-    if(parseInt(campoTelefono.trim()).match(/^[0-9]{9}$/)) {
-        aviso.textContent = 'Introduzca un teléfono válido'
-        return
+    
+
+    const bodyFormulario = {
+        fechaEntrada:campoFechaEntrada,
+        fechaSalida:campoFechaSalida,
+        numeroPersonas:campoNumeroPersona,
+        nombrePersona:campoNombre,
+        dni:campoDni,
+        email:campoEmail,
+        telefono:campoTelefono
     }
 
-    // const bodyFormulario = {
-    //     fechaEntrada:campoFechaEntrada,
-    //     fechaSalida:campoFechaSalida,
-    //     numeroPersonas:campoNumeroPersona,
-    //     nombrePersona:campoNombre,
-    //     dni:campoDni,
-    //     email:campoEmail,
-    //     telefono:campoTelefono
-    // }
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(bodyFormulario)
+        })
 
-    //     const response = await fetch(url, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(bodyFormulario)
-    //     })
-
-    //     if(!response.ok)
-    //     {
+        if(!response.ok)
+        {
     
-    //         aviso.textContent="Ha habido un error en el envío de la reserva";
+            aviso.textContent="Ha habido un error en el envío de la reserva";
            
-    //         throw new Error(`Error HTTP ${response.status}`)
-    //     }
+            throw new Error(`Error HTTP ${response.status}`)
+        }
         
-    //     aviso.textContent= "Reserva efectuada correctamente. Revisa tu email";
-    // } 
-    // catch(error)
-    // {
+        aviso.textContent= "Reserva efectuada correctamente. Revisa tu email";
+    } 
+    catch(error)
+    {
         
-    //     console.log(error)
-    // }
+        console.log(error)
+     }
     
-}
+    }
 
