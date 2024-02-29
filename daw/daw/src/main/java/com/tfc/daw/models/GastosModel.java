@@ -19,7 +19,7 @@ public class GastosModel {
     @Column
     private int precio;
     @Column
-    private int habitacionNumero;
+    private int habitacion_numero;
 
     public String getId() {
         return id;
@@ -54,10 +54,10 @@ public class GastosModel {
     }
 
     public int getHabitacionNumero() {
-        return habitacionNumero;
+        return habitacion_numero;
     }
 
     public void setHabitacionNumero(int habitacionNumero) {
-        this.habitacionNumero = habitacionNumero;
+        this.habitacion_numero = habitacionNumero;
     }
 }

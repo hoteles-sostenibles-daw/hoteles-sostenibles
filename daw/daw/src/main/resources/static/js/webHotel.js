@@ -3,7 +3,7 @@ async function enviarFormulario(event){
 
     event.preventDefault()
     try{
-    let verificar = false;
+
     const campoFechaEntrada = document.querySelector(".fechaEntrada").value.trim();
     const campoFechaSalida = document.querySelector(".fechaSalida").value.trim();
     const campoNumeroPersona = document.querySelector(".inputNumeroPersonas").value.trim();
@@ -11,6 +11,26 @@ async function enviarFormulario(event){
     const campoDni= document.querySelector(".dni").value.trim().toUpperCase();
     const campoEmail = document.querySelector(".email").value.trim();
     const campoTelefono = document.querySelector(".telefono").value.trim();
+    const aviso = document.querySelector(".aviso")
+
+    if(campoNombre.trim() === '' || !campoNombre.match(/^[a-zA-Z]+$/)) {
+        aviso.textContent = 'Introduzca un nombre válido'
+        return
+    }
+    if(campoDni.trim() === '' || !campoDni.match(/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/)) {
+        aviso.textContent = 'Introduzca un DNI válido'
+        return
+    }
+    //TODO validacion telefono mi casa
+    if (campoTelefono.trim() === '' || !campoTelefono.match(/^[0-9]{9}$/)){
+        aviso.textContent = 'Introduzca un teléfono válido'
+        return 
+    }
+    if(campoEmail.trim() === '' || !campoEmail.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+        aviso.textContent = 'Introduzca un email válido'
+        return
+    }
+    
 
     const bodyFormulario = {
         fechaEntrada:campoFechaEntrada,
@@ -22,16 +42,6 @@ async function enviarFormulario(event){
         telefono:campoTelefono
     }
 
-    for(const campo in bodyFormulario){
-        if(bodyFormulario[campo].length === 0){
-            document.querySelector(".aviso").textContent="Por favor rellene todos los campos y seleccione dos fechas";
-            verificar=true;
-        }
-    }
-
-        if(!verificar){
-
-        
         const response = await fetch(url, {
             method: 'POST',
             headers: {
@@ -43,19 +53,18 @@ async function enviarFormulario(event){
         if(!response.ok)
         {
     
-            document.querySelector(".aviso").textContent="Ha habido un error en el envío de la reserva";
+            aviso.textContent="Ha habido un error en el envío de la reserva";
            
             throw new Error(`Error HTTP ${response.status}`)
         }
         
-        document.querySelector(".aviso").textContent= "Reserva efectuada correctamente. Revisa tu email";
-    }
+        aviso.textContent= "Reserva efectuada correctamente. Revisa tu email";
     } 
     catch(error)
     {
         
         console.log(error)
-    }
+     }
     
-}
+    }
 

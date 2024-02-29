@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS huesped (
   email VARCHAR(50) NOT NULL,
   telefono VARCHAR(20) NOT NULL,
   persona_contacto VARCHAR(20) NOT NULL,
+  imagen_dni BLOB,
   PRIMARY KEY (dni));
   
 CREATE TABLE IF NOT EXISTS gastos (
