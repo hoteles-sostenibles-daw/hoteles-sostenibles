@@ -59,3 +59,15 @@ CREATE TABLE IF NOT EXISTS gastos (
     REFERENCES habitacion(numero)
     ON DELETE RESTRICT
     ON UPDATE CASCADE);
+    
+    CREATE TABLE IF NOT EXISTS personal (
+    rol VARCHAR(20) NOT NULL,
+    contrasena VARCHAR(45) NOT NULL,
+    hotel_nombre VARCHAR(45) NOT NULL,
+    PRIMARY KEY (rol),
+  
+    CONSTRAINT fk_personal_hotel
+    FOREIGN KEY (hotel_nombre)
+    REFERENCES hotel (nombre)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE);
