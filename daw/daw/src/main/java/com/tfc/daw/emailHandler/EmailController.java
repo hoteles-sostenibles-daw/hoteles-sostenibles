@@ -1,5 +1,7 @@
 package com.tfc.daw.emailHandler;
 
+import java.util.regex.Pattern;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +19,13 @@ public class EmailController {
     @PostMapping("/emailLanding")
     public ResponseEntity<String> sendEmailLanding(@RequestBody EmailContactUser user) {
 
-        if (emailService.sendEmailLanding(createEmail(user))) {
-            return new ResponseEntity<String>(HttpStatus.OK);
+        if(Pattern.matches("^[a-zA-Z]+$", user.getNombre()) &&
+         Pattern.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", user.getEmail())) {
+            
+            if (emailService.sendEmailLanding(createEmail(user))) {
+                return new ResponseEntity<String>(HttpStatus.OK);
+            }
         }
-
         return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 
     }
