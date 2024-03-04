@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS gastos (
     
     CREATE TABLE IF NOT EXISTS personal (
     rol VARCHAR(20) NOT NULL,
-    contrasena VARCHAR(45) NOT NULL,
+    contrasena VARCHAR(60) NOT NULL,
     hotel_nombre VARCHAR(45) NOT NULL,
     PRIMARY KEY (rol),
   

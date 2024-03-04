@@ -4,18 +4,24 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "personal")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class DatosLogin {
     @Id
     private String rol;
     @Column
     private String contrasena;
     @Column
-    private String nombre_hotel;
+    private String hotel_nombre;
+
+
 
     public String getRol() {
         return rol;
@@ -33,12 +39,12 @@ public class DatosLogin {
         this.contrasena = contrasena;
     }
 
-    public String getNombre_hotel() {
-        return nombre_hotel;
+    public String getHotel_nombre() {
+        return hotel_nombre;
     }
 
-    public void setNombre_hotel(String nombre_hotel) {
-        this.nombre_hotel = nombre_hotel;
+    public void setHotel_nombre(String hotel_nombre) {
+        this.hotel_nombre = hotel_nombre;
     }
 
 }

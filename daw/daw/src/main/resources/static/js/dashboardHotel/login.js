@@ -3,19 +3,19 @@ const url = "http://localhost:8080";
 
 // Validaciones tanto de la contraseña como del usuario
 function validarsuario(usuario) {
-    const regex = /^[a-zA-Z0-9]{1,10}$/;
+    const regex = /^[a-zA-Z]{1,10}$/;
     return regex.test(usuario);
   }
   
   function validarContrasena(contrasena) {
-    const regex = /^[a-zA-Z0-9]{1,10}$/;
+    const regex = /^[a-zA-Z0-9]{1,12}$/;
     return regex.test(contrasena);
   }
   
   function validarFormulario(usuario,contrasena) {
    
     if (! validarsuario(usuario) || !validarContrasena(contrasena)) {
-      document.querySelector(".aviso").textContent='El nombre de usuario solo puede contener letras y números.';
+      document.querySelector(".aviso").textContent='Usuario o contraseña con formato incorrecto';
       return false;
     }
     return true;
@@ -25,8 +25,8 @@ function validarsuario(usuario) {
   //to do cambiar class por id en los input
 async function validarUsuario() {
     
-    const usuarioInput = document.querySelector('.usuario').value;
-    const contrasenaInput = document.querySelector('.contrasena').value;
+    const usuarioInput = document.getElementById('usuario').value;
+    const contrasenaInput = document.getElementById('contrasena').value;
     
     if(!validarFormulario(usuarioInput,contrasenaInput)){
         return;
@@ -37,12 +37,18 @@ async function validarUsuario() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password,nombre_hotel:"Hotel AC Balagares" }),
+      body: JSON.stringify({ 
+        rol: usuarioInput, 
+        contrasena: contrasenaInput,
+        nombre_hotel:"Hotel AC Balagares" }),
     });
   
     if (!response.ok) {
+        document.querySelector(".aviso").textContent='Usuario o contraseña incorrectos';
         throw new Error(`Error HTTP ${response.status}`);
     } 
+
+    window.location.href = `http://localhost:8080/${usuarioInput}`
     }
     catch(error)
     {
