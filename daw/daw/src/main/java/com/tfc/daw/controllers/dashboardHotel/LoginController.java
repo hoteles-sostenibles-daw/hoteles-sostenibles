@@ -1,6 +1,5 @@
 package com.tfc.daw.controllers.dashboardHotel;
 
-import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;

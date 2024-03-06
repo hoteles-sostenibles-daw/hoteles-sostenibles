@@ -19,15 +19,15 @@ CREATE TABLE IF NOT EXISTS huesped (
   PRIMARY KEY (dni));
   
 CREATE TABLE IF NOT EXISTS gastos (
-  id VARCHAR(20) NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
   concepto VARCHAR(50) NOT NULL,
   pagado CHAR(1) NOT NULL,
-  precio SMALLINT NOT NULL,
-  habitacion_numero SMALLINT NOT NULL,
+  precio FLOAT NOT NULL,
+  reserva_codigo SMALLINT NOT NULL,
   PRIMARY KEY (id),
-  CONSTRAINT fk_gastos_habitacion
-    FOREIGN KEY (habitacion_numero)
-    REFERENCES habitacion (numero)
+  CONSTRAINT fk_gastos_reserva
+    FOREIGN KEY (reserva_codigo)
+    REFERENCES reserva (codigo)
     ON DELETE RESTRICT
     ON UPDATE CASCADE);
     
