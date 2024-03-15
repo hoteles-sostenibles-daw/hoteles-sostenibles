@@ -19,17 +19,17 @@
         <form class="insertarGastos">
             <label class="labelGasto">
                 Concepto
-                <input class="inputGastos" type="text">
+                <input id="concepto" class="inputGastos" type="text">
             </label>
             <label class="labelGasto">
                 Precio
-                <input type="text" class="inputGastos">
+                <input id="precio" type="number" step="0.01" class="inputGastos" value="0.00">
             </label>
             <label class="labelGasto">
                 Nº Habitación
-                <input type="text" class="inputGastos">
+                <input id="habitacion" type="number" class="inputGastos" min="1" value="1">
             </label>
-            <button class="botonAnadirGasto" onsubmit="insertarGasto()">Añadir</button>
+            <button class="botonAnadirGasto" type="button" onclick="insertarGasto()">Añadir</button>
         </form>
     </main>
     <footer>

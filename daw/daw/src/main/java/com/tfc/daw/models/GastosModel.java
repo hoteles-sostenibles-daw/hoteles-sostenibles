@@ -2,6 +2,8 @@ package com.tfc.daw.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -11,21 +13,22 @@ import lombok.Data;
 @Data
 public class GastosModel {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @Column
     private String concepto;
     @Column
     private String pagado;
     @Column
-    private int precio;
+    private float precio;
     @Column
-    private int habitacion_numero;
+    private String reserva_codigo;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -45,19 +48,19 @@ public class GastosModel {
         this.pagado = pagado;
     }
 
-    public int getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(float precio) {
         this.precio = precio;
     }
 
-    public int getHabitacionNumero() {
-        return habitacion_numero;
+    public String getReservaCodigo() {
+        return reserva_codigo;
     }
 
-    public void setHabitacionNumero(int habitacionNumero) {
-        this.habitacion_numero = habitacionNumero;
+    public void setReservaCodigo(String reserva_codigo) {
+        this.reserva_codigo = reserva_codigo;
     }
 }

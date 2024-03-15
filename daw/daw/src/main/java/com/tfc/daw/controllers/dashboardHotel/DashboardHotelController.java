@@ -14,7 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.tfc.daw.models.DatosEntradaSalidaDTO;
-
+import com.tfc.daw.models.DatosGastoFront;
+import com.tfc.daw.services.gestionReservas.GastosService;
 import com.tfc.daw.services.gestionReservas.GestionDatosReservaService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,27 +29,42 @@ public class DashboardHotelController {
     @Autowired
     private GestionDatosReservaService gestionDatosReservaService;
 
+    @Autowired
+    private GastosService gastosService;
+
     @GetMapping("/recepcion")
     public ResponseEntity<?> gestionDeReservas(HttpServletRequest request) {
 
-        HttpSession session = request.getSession(false);
+        // HttpSession session = request.getSession(false);
 
-        if(session != null) {
+        // if(session != null) {
             return ResponseEntity.ok().body(new ClassPathResource("/static/html/dashboardHotel/gestionReserva/dashboardGestionReservas.html"));
-        }
-        return ResponseEntity.status(HttpStatus.FOUND).header("Location", "/login").build();
+        // }
+        // return ResponseEntity.status(HttpStatus.FOUND).header("Location", "/login").build();
+    }
+
+
+    @GetMapping("/servicios")
+    public ResponseEntity<?> gestionGastos(HttpServletRequest request) {
+
+        // HttpSession session = request.getSession(false);
+
+        // if(session != null) {
+            return ResponseEntity.ok().body(new ClassPathResource("/static/html/dashboardHotel/gestionGastos/dashboardGastos.html"));
+        //}
+        // return ResponseEntity.status(HttpStatus.FOUND).header("Location", "/login").build();
     }
 
 
     @GetMapping("/inforeserva/{codigoreserva}")
     public ResponseEntity<?> paginaInfoReserva(HttpServletRequest request) {
 
-        HttpSession session = request.getSession(false);
+        // HttpSession session = request.getSession(false);
 
-        if(session != null) {
+        // if(session != null) {
             return ResponseEntity.ok().body(new ClassPathResource("/static/html/dashboardHotel/gestionReserva/dashboardInfoReserva.html"));
-        }
-        return ResponseEntity.status(HttpStatus.FOUND).header("Location", "/login").build();
+        // }
+        // return ResponseEntity.status(HttpStatus.FOUND).header("Location", "/login").build();
 
     }
 
@@ -101,4 +117,10 @@ public class DashboardHotelController {
     public ResponseEntity<byte[]> cargarImagen(@PathVariable String dni) throws IOException {
        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(this.gestionDatosReservaService.cargarImagen(dni));
     }
+
+    @PostMapping("/addgasto")
+    public void anadirGasto(@RequestBody DatosGastoFront gasto) {
+        this.gastosService.anadirGasto(gasto);
+    }
+
 }

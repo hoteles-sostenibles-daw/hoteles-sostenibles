@@ -148,3 +148,7 @@ async function cargarImagenDni()
         console.log(error)
     }
 }
+
+function volverInicio() {
+    window.location.href = 'http://localhost:8080/recepcion'
+}

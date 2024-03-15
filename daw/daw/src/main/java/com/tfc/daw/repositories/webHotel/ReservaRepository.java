@@ -15,4 +15,7 @@ public interface ReservaRepository extends JpaRepository<ReservaModel, String> {
 
     @Query("SELECT r FROM ReservaModel r WHERE r.fecha_salida = :fechaSalida")
     public ArrayList<ReservaModel> buscarFechaSalida(@Param("fechaSalida") String fechaSalida);
+
+    @Query("SELECT r.codigo FROM ReservaModel r WHERE r.habitacion_numero = :numHabitacion")
+    public String obtenerCodigoReserva(@Param("numHabitacion") int numHabitacion);
 }
