@@ -1,28 +1,20 @@
 package com.tfc.daw.controllers.dashboardHotel;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
-
 import com.tfc.daw.models.HuespedModel;
 import com.tfc.daw.models.ReservaModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import com.tfc.daw.models.DatosEntradaSalidaDTO;
 import com.tfc.daw.models.DatosGastoFront;
 import com.tfc.daw.services.gestionReservas.GastosService;
 import com.tfc.daw.services.gestionReservas.GestionDatosReservaService;
-
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
-
 import org.springframework.web.multipart.MultipartFile;
-
 
 @RestController
 public class DashboardHotelController {

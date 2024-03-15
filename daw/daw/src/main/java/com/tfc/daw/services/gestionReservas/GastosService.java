@@ -17,13 +17,13 @@ public class GastosService {
     @Autowired
     private ReservaRepository reservaRepository;
 
-    public void anadirGasto(DatosGastoFront gasto) {
+    public GastosModel anadirGasto(DatosGastoFront gasto) {
         GastosModel gastos = new GastosModel();
         gastos.setConcepto(gasto.getConcepto());
         gastos.setPagado("N");
         gastos.setPrecio(Float.parseFloat(gasto.getPrecio()));
         gastos.setReservaCodigo(this.reservaRepository.obtenerCodigoReserva(Integer.parseInt(gasto.getNumHabitacion())));
-        this.gastosRespository.save(gastos);
+        return this.gastosRespository.save(gastos);
     }
     
 }

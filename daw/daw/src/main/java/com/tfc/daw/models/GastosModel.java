@@ -24,6 +24,19 @@ public class GastosModel {
     @Column
     private String reserva_codigo;
 
+    
+
+    public GastosModel() {
+    }
+
+    public GastosModel( String concepto, String pagado, float precio, String reserva_codigo) {
+    
+        this.concepto = concepto;
+        this.pagado = pagado;
+        this.precio = precio;
+        this.reserva_codigo = reserva_codigo;
+    }
+
     public int getId() {
         return id;
     }
