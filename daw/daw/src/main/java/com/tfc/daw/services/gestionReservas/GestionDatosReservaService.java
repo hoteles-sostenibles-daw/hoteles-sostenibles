@@ -25,7 +25,7 @@ public class GestionDatosReservaService {
     private ReservaRepository reservaRepository;
     @Autowired
     private HuespedRepository huespedRepository;
-      @Autowired
+    @Autowired
     private EmailService emailService;
 
     public ArrayList<DatosEntradaSalidaDTO> obtenerFechaEntrada(String fecha) {
@@ -65,7 +65,7 @@ public class GestionDatosReservaService {
         return listaSalidasFront;
     }
 
-    private String obtenerEmail(String dni){
+    public String obtenerEmail(String dni){
         Optional<HuespedModel> huesped = this.huespedRepository.findById(dni);
         return huesped.get().getEmail();
     }

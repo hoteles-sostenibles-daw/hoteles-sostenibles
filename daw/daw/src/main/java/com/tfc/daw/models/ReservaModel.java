@@ -29,6 +29,22 @@ public class ReservaModel {
     @Column
     private String habitacion_numero;
 
+    public ReservaModel() {
+    }
+
+    public ReservaModel(String codigo, String fecha_entrada, String fecha_salida, String check_in, String check_out,
+            int numero_huespedes, String hotel_nombre, String huesped_dni, String habitacion_numero) {
+        this.codigo = codigo;
+        this.fecha_entrada = fecha_entrada;
+        this.fecha_salida = fecha_salida;
+        this.check_in = check_in;
+        this.check_out = check_out;
+        this.numero_huespedes = numero_huespedes;
+        this.hotel_nombre = hotel_nombre;
+        this.huesped_dni = huesped_dni;
+        this.habitacion_numero = habitacion_numero;
+    }
+
     public String getCodigo() {
         return codigo;
     }

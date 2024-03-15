@@ -21,6 +21,19 @@ public class HuespedModel {
     @Column
     private byte[] imagen_dni;
 
+    
+    
+    public HuespedModel() {
+    }
+
+    public HuespedModel(String dni, String email, String telefono, String persona_contacto, byte[] imagen_dni) {
+        this.dni = dni;
+        this.email = email;
+        this.telefono = telefono;
+        this.persona_contacto = persona_contacto;
+        this.imagen_dni = imagen_dni;
+    }
+
     public byte[] getImagen_dni() {
         return imagen_dni;
     }
