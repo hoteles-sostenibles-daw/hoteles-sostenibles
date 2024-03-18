@@ -1,7 +1,6 @@
 package com.tfc.daw.models;
 
 public class DatosGastoFront {
-    
     private String concepto;
     private String precio;
     private String numHabitacion;
@@ -34,5 +33,4 @@ public class DatosGastoFront {
         this.numHabitacion = numHabitacion;
     }
  
-    
 }
