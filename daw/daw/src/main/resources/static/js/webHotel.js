@@ -9,10 +9,14 @@ async function enviarFormulario(event){
     const campoNumeroPersona = document.querySelector(".inputNumeroPersonas").value.trim();
     const campoNombre = document.querySelector(".nombre").value.trim();
     const campoDni= document.querySelector(".dni").value.trim().toUpperCase();
-    const campoEmail = document.querySelector(".email").value.trim();
     const campoTelefono = document.querySelector(".telefono").value.trim();
+    const campoEmail = document.querySelector(".email").value.trim();
     const aviso = document.querySelector(".aviso")
-
+        
+    if(campoFechaSalida === undefined || campoFechaSalida === '') {
+        aviso.textContent = 'Introduzca una fecha de salida'
+        return
+    }
     if(campoNombre.trim() === '' || !campoNombre.match(/^[a-zA-Z]+$/)) {
         aviso.textContent = 'Introduzca un nombre válido'
         return
@@ -21,14 +25,13 @@ async function enviarFormulario(event){
         aviso.textContent = 'Introduzca un DNI válido'
         return
     }
-    //TODO validacion telefono mi casa
-    if (campoTelefono.trim() === '' || !campoTelefono.match(/^[0-9]{9}$/)){
-        aviso.textContent = 'Introduzca un teléfono válido'
-        return 
-    }
     if(campoEmail.trim() === '' || !campoEmail.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
         aviso.textContent = 'Introduzca un email válido'
         return
+    }
+    if (campoTelefono.trim() === '' || !campoTelefono.match(/^[0-9]{9}$/)){
+        aviso.textContent = 'Introduzca un teléfono válido'
+        return 
     }
     
 

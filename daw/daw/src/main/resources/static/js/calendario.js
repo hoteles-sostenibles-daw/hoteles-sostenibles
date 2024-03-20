@@ -71,6 +71,7 @@
         intervaloFechas.push(fecha);
         boton.classList.add("fechaSeleccionada");
         fechaEntrada.value = fecha;
+        document.querySelector(".divFechaEntrada").classList.remove("hidden");
       }
       else if(intervaloFechas.length === 1){
         const fechaGuardada = new Date (intervaloFechas[0].split("-")[2], intervaloFechas[0].split("-")[1]-1, intervaloFechas[0].split("-")[0] ) ;
@@ -82,7 +83,7 @@
           document.querySelector(".divFechaSalida").classList.remove("hidden");
         }
       }
-      else if(intervaloFechas.length ===2 && intervaloFechas.includes(fecha)) {
+      else if( intervaloFechas.length === 2 ) {
         const elementoSeleccionado = document.querySelectorAll(".fechaSeleccionada");
         for (const elemento of elementoSeleccionado) {
             elemento.classList.remove("fechaSeleccionada");

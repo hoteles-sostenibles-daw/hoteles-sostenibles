@@ -30,20 +30,16 @@ public class GestionDatosReservaServiceTest {
 
     @Test
     public void testCargarInfoReserva() {
-        // Datos de ejemplo
+
         String codigoReserva = "12345678F232024";
         ReservaModel reserva = new ReservaModel(codigoReserva, "xxx", "xxx", "s", "s", 0, "xxx", "xxx", "xxx");
 
-        // Configuración del comportamiento del mock
         when(reservaRepository.findById(codigoReserva)).thenReturn(Optional.of(reserva));
 
-        // Llamada al método que queremos probar
         Optional<ReservaModel> resultado = gestionDatosReservaService.cargarInfoReserva(codigoReserva);
 
-        // Verificación de que el método del repositorio fue llamado con el código de reserva correcto
         verify(reservaRepository).findById(codigoReserva);
 
-        //Assertion para verificar que el resultado contiene la reserva esperada
         assertNotNull(codigoReserva);
         assertNotNull(resultado.get().getCodigo());
         assertTrue(codigoReserva instanceof String);
@@ -54,20 +50,16 @@ public class GestionDatosReservaServiceTest {
 
     @Test
     public void testObtenerEmail() {
-        // Datos de ejemplo
+
         String dni = "12345678F";
         HuespedModel huesped = new HuespedModel(dni, "example@example.com", "xxx", "xxx", null);
 
-        // Configuración del comportamiento del mock
         when(huespedRepository.findById(dni)).thenReturn(Optional.of(huesped));
 
-        // Llamada al método que queremos probar
         String resultado = gestionDatosReservaService.obtenerEmail(dni);
 
-        // Verificación de que el método del repositorio fue llamado con el código de reserva correcto
         verify(huespedRepository).findById(dni);
 
-        //Assertion para verificar que el resultado contiene la reserva esperada
         assertNotNull(dni);
         assertEquals(9, dni.length());
         assertTrue(dni instanceof String);

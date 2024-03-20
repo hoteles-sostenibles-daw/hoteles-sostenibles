@@ -32,6 +32,11 @@ public class LoginController {
         
         if(this.loginService.validarDatosUsuario(body)) {
             HttpSession session = request.getSession(true);
+            if(body.getRol().equals("recepcion")) {
+                session.setAttribute("rol", body.getRol());
+            } else if(body.getRol().equals("servicios")) {
+                session.setAttribute("rol", body.getRol());
+            }
             return new ResponseEntity<String>(HttpStatus.OK);
         }
         return new ResponseEntity<String>(HttpStatus.UNAUTHORIZED);

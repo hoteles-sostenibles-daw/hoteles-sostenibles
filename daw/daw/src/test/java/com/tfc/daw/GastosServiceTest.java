@@ -27,21 +27,20 @@ public class GastosServiceTest {
     @InjectMocks
     private GastosService gastosService;
 
-     @Test
+    @Test
     public void testAnadirGasto() {
-        // Datos de ejemplo
+       
         GastosModel gastos = new GastosModel("pizza", "N", 1.1f, "xxxxxxxx");
         DatosGastoFront gastoFront = new DatosGastoFront("pizza", "1.1", "1");
-        // Configuración del comportamiento del mock
+       
         when(reservaRepository.obtenerCodigoReserva(Integer.parseInt(gastoFront.getNumHabitacion()))).thenReturn(gastos.getReserva_codigo());
         when(gastosRespository.save(gastos)).thenReturn(gastos);
-        // Llamada al método que queremos probar
+        
         GastosModel resultado = gastosService.anadirGasto(gastoFront);
-        // Verificación de que el método del repositorio fue llamado con el código de reserva correcto
+        
         verify(gastosRespository).save(gastos);
         verify(reservaRepository).obtenerCodigoReserva(Integer.parseInt(gastoFront.getNumHabitacion()));
 
-        //Assertion para verificar que el resultado contiene la reserva esperada
         assertNotNull(gastoFront);
         assertNotNull(gastos);
         assertNotNull(gastoFront.getNumHabitacion());
