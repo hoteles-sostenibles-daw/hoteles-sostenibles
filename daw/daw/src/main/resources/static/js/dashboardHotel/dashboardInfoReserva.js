@@ -29,6 +29,7 @@ async function cargarInfoReserva()
         
         cargarReservaHtml(data)
         cargarImagenDni()
+        cargarGastos()
 
     } 
 
@@ -146,6 +147,48 @@ async function cargarImagenDni()
     catch(error)
     {
         console.log(error)
+    }
+}
+
+async function cargarGastos()
+{
+    try{
+        const numeroReserva = document.querySelector('.spanNumReserva').textContent
+
+        const response = await fetch(`${url}gastosreserva/${numeroReserva}`, {
+            method: 'GET',
+        })
+
+        if(!response.ok)
+        {
+            throw new Error(`Error HTTP ${response.status}`)
+        }
+        
+        const data= await response.json();
+        
+        crearTdPorGasto(data)
+    } 
+
+    catch(error)
+    {
+        console.log(error)
+    }
+}
+
+function crearTdPorGasto(listaGastos) {
+    
+    const tableGasto = document.querySelector('.tableGastos')
+   
+    for(let gasto of listaGastos) {
+        const tr = document.createElement('tr')
+        const tdConcepto = document.createElement('td')
+        tdConcepto.textContent = gasto.concepto
+        const tdPrecio = document.createElement('td')
+        tdPrecio.textContent =  gasto.precio
+
+        tr.appendChild(tdConcepto)
+        tr.appendChild(tdPrecio)
+        tableGasto.appendChild(tr)
     }
 }
 

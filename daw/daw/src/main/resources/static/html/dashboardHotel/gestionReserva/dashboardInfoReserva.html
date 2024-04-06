@@ -63,31 +63,18 @@
 
                 <article class="articleComponente">
                     <h3>GASTOS HABITACIÓN <span class="spanNumHabitacion">55</span></h3>
-                    <ul class="ulInfoReserva">
-                        <li class="liInfoGastos">
-                            <span>Consumo</span><span>Precio</span><span>Pagado</span>
-                        </li>
-                        <li class="liInfoGastos">
-                            <p class="parrafoTipoConsumo">Cocacola</p>
-                            <p class="parrafoConsumo">20€</p>
-                            <button class="checkinState r123456" type="button" ></button>
-                        </li>
-                        <li class="liInfoGastos">
-                            <p class="parrafoTipoConsumo">Menu dia</p>
-                            <p class="parrafoConsumo">20€</p>
-                            <button class="checkinState r123456" type="button" ></button>
-                        </li>
-                        <li class="liInfoGastos">
-                            <p class="parrafoTipoConsumo">Desayuno</p>
-                            <p class="parrafoConsumo">20€</p>
-                            <button class="checkinState r123456" type="button"></button>
-                        </li>
-                        <li class="liInfoGastos">
-                            <p class="parrafoTipoConsumo">Ron</p>
-                            <p class="parrafoConsumo">20€</p>
-                            <button class="checkinState r123456" type="button" ></button>
-                        </li>
-                    </ul>
+                    <table class="tableGastos">
+                        <tr class="primeraFila">
+                            <th>Consumo</th>
+                            <th>Precio</th>
+                        </tr>  
+                    </table>
+                    <table>
+                        <tr>
+                            <td>Total a pagar <span class="totalGasto">200</span></td>
+                            <td>Pagado <button class="checkinState r123456" type="button" ></button></td>
+                        </tr>
+                    </table>
                     <button class="botonVolverInicio" type="button" onclick="volverInicio()">Volver al incio</button>
                 </article>
         </section>

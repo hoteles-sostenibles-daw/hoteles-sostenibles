@@ -34,11 +34,7 @@ footer
     height: 100%;
     width: 300px;
 }
-.logoImgFake
-{
-    /* height: 100%;
-    width: 300px; */
-}
+
 .flechaImg
 {
     height: 50%;
@@ -105,16 +101,6 @@ main
 }
 /* inicio */
 
-.liInfoGastos
-{
-    display: flex;
-    gap: 20px;
-    padding: 10px 10px;
-    border: 1px solid;
-    border-radius: 5px;
-    justify-content: space-around;
-    min-width: 430px;
-}
 .ulStyleReserva
 {
     width: 100%;
@@ -232,17 +218,7 @@ table {
         align-items: center;
     }
 }
-.parrafoTipoConsumo
-{
-    position: relative;
-    right: 10px;
-    width: 90px;
-}
-.parrafoConsumo
-{
-    position: relative;
-    right: 30px;
-}
+
 .botonVolverInicio
 {
     margin-top: 30px;

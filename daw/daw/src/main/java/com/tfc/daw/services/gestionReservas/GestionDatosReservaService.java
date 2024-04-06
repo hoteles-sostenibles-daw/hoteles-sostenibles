@@ -12,8 +12,10 @@ import org.springframework.stereotype.Service;
 import com.tfc.daw.emailHandler.EmailDetails;
 import com.tfc.daw.emailHandler.EmailService;
 import com.tfc.daw.models.DatosEntradaSalidaDTO;
+import com.tfc.daw.models.GastosModel;
 import com.tfc.daw.models.HuespedModel;
 import com.tfc.daw.models.ReservaModel;
+import com.tfc.daw.repositories.webHotel.GastosRespository;
 import com.tfc.daw.repositories.webHotel.HuespedRepository;
 import com.tfc.daw.repositories.webHotel.ReservaRepository;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,6 +27,8 @@ public class GestionDatosReservaService {
     private ReservaRepository reservaRepository;
     @Autowired
     private HuespedRepository huespedRepository;
+    @Autowired
+    private GastosRespository gastosRespository;
     @Autowired
     private EmailService emailService;
 
@@ -169,5 +173,9 @@ public class GestionDatosReservaService {
     public byte[] cargarImagen(String dni) throws IOException {
         Optional<HuespedModel> huesped = this.huespedRepository.findById(dni);
         return huesped.get().getImagen_dni();
+    }
+
+    public ArrayList<GastosModel> obtenerGastos(String numeroReserva) {
+        return this.gastosRespository.obtenerGastosNumeroReserva(numeroReserva);
     }
 }
