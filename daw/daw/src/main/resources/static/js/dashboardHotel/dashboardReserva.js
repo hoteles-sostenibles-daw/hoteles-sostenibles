@@ -96,11 +96,16 @@ function generarTR(listaReservas, tipo){
         const boton = document.createElement("button");
         boton.setAttribute("class",`checkinState ${reserva.codigoReserva}`)
         boton.setAttribute("type","button")
-        if(tipo === 'entrada')boton.setAttribute("onclick","checkinRealizado(this)")
-        if(tipo === 'salida')boton.setAttribute("onclick","checkoutRealizado(this)")
+        if(tipo === 'entrada') {
+            boton.setAttribute("onclick","checkinRealizado(this)")
+            crearOkCheckin(boton,reserva.checkIn);
+        }
+        if(tipo === 'salida') {
+            boton.setAttribute("onclick","checkoutRealizado(this)")
+            crearOkCheckin(boton,reserva.checkOut);
+        }
         
-        crearOkCheckin(boton,reserva.checkIn);
-
+    
         tr.appendChild(tdNumReserva);
         tr.appendChild(tdNDNI);
         tdCheckin.appendChild(boton)
@@ -217,7 +222,7 @@ async function obtenerInfoReserva()
        }
        else
        {
-        document.querySelector('.aviso').textContent = 'El código de reserva no existe'
+        document.querySelector('.aviso1').textContent = 'El código de reserva no existe'
        }
     } 
 
@@ -226,3 +231,44 @@ async function obtenerInfoReserva()
         console.log(error)
     }
 }
+
+async function obtenerInfoPorHabitacion()
+{
+    try{
+        const numHabitacion = document.querySelector('.inputNumHabitacion').value
+
+        if(isNaN(numHabitacion) || numHabitacion.length > 2) {
+            document.querySelector('.aviso2').textContent = 'La habitación no existe'
+            return
+        }
+
+        const response = await fetch(`${url}obtenerinfohabitacion`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/plain'
+            },
+            body: numHabitacion
+
+        })
+
+        if(!response.ok)
+        {
+            throw new Error(`Error HTTP ${response.status}`)
+        }
+       const data = await response.text();
+       if(data.length > 0)
+       {
+        window.location.href =`${url}inforeserva/${data}`
+       }
+       else
+       {
+        document.querySelector('.aviso2').textContent = 'La habitación no existe'
+       }
+    } 
+
+    catch(error)
+    {
+        console.log(error)
+    }
+}
+
