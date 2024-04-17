@@ -30,8 +30,7 @@ async function cargarInfoReserva()
         
         cargarReservaHtml(data)
         cargarImagenDni()
-        cargarGastos()
-
+        cargarGastos(data)
     } 
 
     catch(error)
@@ -45,7 +44,6 @@ function cargarReservaHtml(reserva)
     document.querySelector('.spanNumReserva').textContent = reserva.codigo
     document.querySelector('.infoFechaEntrada').textContent = reserva.fecha_entrada
     document.querySelector('.infoFechaSalida').textContent = reserva.fecha_salida
-
     if(reserva.habitacion_numero == null)
     {
         document.querySelector('.numHabitacion').textContent = 'Sin asignar'
@@ -151,7 +149,7 @@ async function cargarImagenDni()
     }
 }
 
-async function cargarGastos()
+async function cargarGastos(reserva)
 {
     try{
         const numeroReserva = document.querySelector('.spanNumReserva').textContent

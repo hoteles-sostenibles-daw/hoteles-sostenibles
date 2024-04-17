@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,11 @@ import com.tfc.daw.emailHandler.EmailDetails;
 import com.tfc.daw.emailHandler.EmailService;
 import com.tfc.daw.models.DatosEntradaSalidaDTO;
 import com.tfc.daw.models.GastosModel;
+import com.tfc.daw.models.HabitacionModel;
 import com.tfc.daw.models.HuespedModel;
 import com.tfc.daw.models.ReservaModel;
 import com.tfc.daw.repositories.webHotel.GastosRespository;
+import com.tfc.daw.repositories.webHotel.HabitacionRepository;
 import com.tfc.daw.repositories.webHotel.HuespedRepository;
 import com.tfc.daw.repositories.webHotel.ReservaRepository;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,6 +34,8 @@ public class GestionDatosReservaService {
     private GastosRespository gastosRespository;
     @Autowired
     private EmailService emailService;
+    @Autowired
+    private HabitacionRepository habitacionRepository;
 
     public ArrayList<DatosEntradaSalidaDTO> obtenerFechaEntrada(String fecha) {
 
@@ -87,6 +92,7 @@ public class GestionDatosReservaService {
             if(convertirFecha().equals(reserva.get().getFecha_entrada()) && reserva.get().getCheck_in().equals("N")){
                 this.reservaRepository.save(deOptionalAObjeto(reserva, "in"));
                 this.emailService.sendEmailLanding(envioGuiaPractica(obtenerEmail(reserva.get().getHuesped_dni())));
+                asignarHabitacion(codigoReserva);
                 return "Checkin realizado correctamente. No se olvide de enviar la foto del DNI";
             }
             else{
@@ -95,6 +101,19 @@ public class GestionDatosReservaService {
         }
         return "El código de reserva no existe"; 
     } 
+
+    private void asignarHabitacion(String codigoReserva) {
+         List<HabitacionModel> listaHabitaciones = this.habitacionRepository.findAll();
+         
+         for(HabitacionModel habitacion: listaHabitaciones) {
+    
+            if(habitacion.getHabitacionOcupada().equals("N")) {
+                this.reservaRepository.asignarHabitacion(codigoReserva, habitacion.getNumero());
+                this.habitacionRepository.actualizarEstadoHabitacion(habitacion.getNumero());
+                break;
+            }
+         }
+    }
 
     public void actualizarCheckOut(String codigoReserva){
         Optional<ReservaModel> reserva = obtenerReservaPorId(codigoReserva);
@@ -133,8 +152,8 @@ public class GestionDatosReservaService {
         reservaObjeto.setNumero_huespedes(reserva.get().getNumero_huespedes());
         reservaObjeto.setHotel_nombre(reserva.get().getHotel_nombre());
         reservaObjeto.setHuesped_dni(reserva.get().getHuesped_dni());
-        reservaObjeto.setHabitacion_numero(reserva.get().getHabitacion_numero());
-        System.out.println(reservaObjeto);
+        reservaObjeto.setHabitacion_numero(null);
+        this.habitacionRepository.actualizarEstadoHabitacionSalida(Integer.parseInt(reserva.get().getHabitacion_numero()));
         return reservaObjeto;
     }
 
@@ -181,5 +200,9 @@ public class GestionDatosReservaService {
 
     public int actualizarPago(String numeroReserva) {
         return this.gastosRespository.actualizarPago(numeroReserva);
+    }
+
+    public String obtenerInfoHabitacion(String habitacion) {
+        return this.reservaRepository.obtenerCodigoReserva(Integer.parseInt(habitacion));
     }
 }

@@ -84,9 +84,15 @@ public class DashboardHotelController {
     public void actualizarCheckOut( @PathVariable String codigoReserva) {
         this.gestionDatosReservaService.actualizarCheckOut(codigoReserva);
     }
+
     @PostMapping("/obtenerinforeserva")
     public Boolean obtenerInfoReserva(@RequestBody String codigoReserva) {
         return this.gestionDatosReservaService.obtenerInfoReserva(codigoReserva);
+    }
+
+    @PostMapping("/obtenerinfohabitacion")
+    public String obtenerInfoHabitacion(@RequestBody String habitacion) {
+        return this.gestionDatosReservaService.obtenerInfoHabitacion(habitacion);
     }
 
     @PostMapping("/cargarinforeserva")
