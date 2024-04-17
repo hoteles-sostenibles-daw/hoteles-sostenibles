@@ -1,4 +1,5 @@
 const url = 'http://localhost:8080/'
+let gastoTotal = 0
 
 function funcionesInicio()
 {
@@ -167,6 +168,8 @@ async function cargarGastos()
         const data= await response.json();
         
         crearTdPorGasto(data)
+        document.querySelector('.totalGasto').textContent = `${gastoTotal.toFixed(2)}€`
+
     } 
 
     catch(error)
@@ -184,7 +187,8 @@ function crearTdPorGasto(listaGastos) {
         const tdConcepto = document.createElement('td')
         tdConcepto.textContent = gasto.concepto
         const tdPrecio = document.createElement('td')
-        tdPrecio.textContent =  gasto.precio
+        tdPrecio.textContent =  `${gasto.precio}€`
+        gastoTotal += gasto.precio
 
         tr.appendChild(tdConcepto)
         tr.appendChild(tdPrecio)
@@ -194,4 +198,45 @@ function crearTdPorGasto(listaGastos) {
 
 function volverInicio() {
     window.location.href = 'http://localhost:8080/recepcion'
+}
+
+async function actualizarPago()
+{
+    try{
+        const boton = document.querySelector('.botonPagado')
+        const numeroReserva = document.querySelector('.spanNumReserva').textContent
+
+        if(gastoTotal === 0) return
+
+        if(!boton.hasChildNodes()) {
+            const response = await fetch(`${url}actualizarpago`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'text/plain'
+                },
+                body: numeroReserva
+    
+            })
+    
+            if(!response.ok)
+            {
+                throw new Error(`Error HTTP ${response.status}`)
+            }
+    
+            crearOkPagado(boton)
+        }
+    } 
+    catch(error)
+    {
+        console.log(error)
+    }
+}
+
+function crearOkPagado(boton)
+{
+    const iconoOk = document.createElement('img');
+    iconoOk.setAttribute('class','okIcon');
+    iconoOk.setAttribute('src','../../../img/ok.png');
+    iconoOk.setAttribute('alt','icono ok');
+    boton.appendChild(iconoOk)
 }

@@ -178,4 +178,8 @@ public class GestionDatosReservaService {
     public ArrayList<GastosModel> obtenerGastos(String numeroReserva) {
         return this.gastosRespository.obtenerGastosNumeroReserva(numeroReserva);
     }
+
+    public int actualizarPago(String numeroReserva) {
+        return this.gastosRespository.actualizarPago(numeroReserva);
+    }
 }

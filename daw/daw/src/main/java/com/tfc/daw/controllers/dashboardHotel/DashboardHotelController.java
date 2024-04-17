@@ -122,4 +122,9 @@ public class DashboardHotelController {
     public ArrayList<GastosModel> obtenerGastos(@PathVariable String numeroReserva) {
         return this.gestionDatosReservaService.obtenerGastos(numeroReserva);
     }
+
+    @PutMapping("/actualizarpago")
+    public int actualizarPago(@RequestBody String numeroReserva) {
+        return this.gestionDatosReservaService.actualizarPago(numeroReserva);
+    }
 }
