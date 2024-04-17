@@ -31,11 +31,11 @@ public class DashboardHotelController {
     @GetMapping("/recepcion")
     public ResponseEntity<?> gestionDeReservas(HttpServletRequest request) {
 
-        // HttpSession session = request.getSession(false);
-        // if(session != null && session.getAttribute("rol").equals("recepcion")) {
+        HttpSession session = request.getSession(false);
+        if(session != null && session.getAttribute("rol").equals("recepcion")) {
             return ResponseEntity.ok().body(new ClassPathResource("/static/html/dashboardHotel/gestionReserva/dashboardGestionReservas.html"));
-        // }
-        // return ResponseEntity.status(HttpStatus.FOUND).header("Location", "/login").build();
+        }
+        return ResponseEntity.status(HttpStatus.FOUND).header("Location", "/login").build();
     }
 
 
@@ -54,12 +54,12 @@ public class DashboardHotelController {
     @GetMapping("/inforeserva/{codigoreserva}")
     public ResponseEntity<?> paginaInfoReserva(HttpServletRequest request) {
 
-        // HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession(false);
 
-        // if(session != null && session.getAttribute("rol").equals("recepcion")) {
+        if(session != null && session.getAttribute("rol").equals("recepcion")) {
             return ResponseEntity.ok().body(new ClassPathResource("/static/html/dashboardHotel/gestionReserva/dashboardInfoReserva.html"));
-        // }
-        // return ResponseEntity.status(HttpStatus.FOUND).header("Location", "/login").build();
+        }
+        return ResponseEntity.status(HttpStatus.FOUND).header("Location", "/login").build();
 
     }
 
