@@ -1,0 +1,319 @@
+html
+{
+    height: 100%;
+}
+body
+{
+    background-color: rgb(248, 244, 237);
+    min-width: 100vw;
+    min-height: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.25rem;
+}
+footer
+{
+    margin: auto 0 5% 0;
+    text-align: center;
+}
+/* header */
+.logoContainer
+{
+    display: flex;
+    width: 100vw;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.logoImg
+{
+    height: 100%;
+    width: 300px;
+}
+
+.flechaImg
+{
+    height: 50%;
+    width: 35%;
+}
+/* main */
+main
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.infoReservasContainer
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+.inputContainer
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+.inputNumReserva, .inputNumHabitacion
+{
+    text-align: center;
+    height: 25px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+.botonBuscar
+{
+    height: 30px;
+    width: 80px;
+    border-radius: 10px;
+}
+.botonBuscar:hover
+{
+    background-color: rgb(231, 224, 215);
+}
+.aviso{
+    margin-top: 10px;
+    color: red;
+}
+.articleComponenteContainer
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    width: 100%;
+}
+.articleComponente
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+/* inicio */
+
+.ulStyleReserva
+{
+    width: 100%;
+}
+p{
+    margin: 0;
+}
+
+table {
+    width: 500px;
+    border: 1px solid #999;
+    text-align: center;
+    border-collapse: collapse;
+    margin: 0 0 1em 0;
+    caption-side: top;
+ }
+ caption, td, th {
+    padding: 0.3em;
+ }
+ th, td {
+    border-bottom: 1px solid #999;
+
+ }
+ 
+ caption {
+    font-weight: bold;
+    font-style: italic;
+ }
+
+.checkinState
+{
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    text-align: center;
+}
+
+.checkoutState
+{
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    text-align: center;
+    position: relative;
+    right: 25px;
+}
+.okIcon
+{
+    width: 15px;
+    height: 15px;
+}
+.parrafoDNI
+{
+    position: relative;
+    right: 15px;
+}
+/* info reserva */
+.ulInfoReserva
+{
+    padding: 0;
+}
+.liInfoReserva
+{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.containerImgDni
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 35px;
+}
+.imgDni
+{
+    width: 500px;
+}
+.botonGuardarDni{
+    width: 160px;
+}
+.hidden{
+    display: none;
+}
+
+.divInfoReservaContainer
+{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 500px;
+    gap: 15px;
+    position: relative;
+    top: 7px;
+}
+.alCentro{
+    align-items: center;
+}
+.divInfoReserva
+{
+    width: 275px;
+}
+@media only screen and (max-width: 1099px) 
+{
+    .divInfoReservaContainer
+    {
+        position: relative;
+        left: 17px;
+        align-items: center;
+    }
+}
+
+.botonVolverInicio
+{
+    margin-top: 30px;
+    font-size: 1.25rem;
+    padding: 10px;
+    border-radius: 7px;
+}
+.botonVolverInicio:hover
+{
+    background-color: rgb(231, 224, 215);
+}
+/* insertar gastos */
+.insertarGastos
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.labelGasto
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.inputGastos
+{
+    text-align: center;
+    height: 25px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+.botonAnadirGasto
+{
+    margin-top: 25px;
+    width: 85px;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 7px;
+}
+.botonAnadirGasto:hover{
+    background-color: rgb(231, 224, 215);
+}
+
+/* login */
+.bodyLogin
+{
+    background-color: white;
+}
+.mainLogin
+{
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+}
+.formLogin
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+    padding: 50px;
+    margin: 50px;
+    background: linear-gradient(180deg, rgb(207, 207, 207) 60%, #afb4a7 110%);
+    box-shadow: 2px 2px #4F6247;
+}
+.labelLogin
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.50rem;
+}
+.botonLogin
+{
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 20px;
+    width: 150px;
+    height: 50px;
+    border: none;
+    background-color: #ffffff;
+    font-size: 1.25rem;
+}
+.botonLogin:hover
+{
+    background-color: #4F6247;
+}
+.inputLogin
+{
+    padding: 10px;
+    border-radius: 7px;
+    text-align: center;
+    font-size: 1.25rem;
+    border: none;
+}

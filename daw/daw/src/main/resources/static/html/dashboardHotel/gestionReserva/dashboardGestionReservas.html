@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control NOMBRE HOTEL</title>
+    <link rel="stylesheet" href="../../../css/dashboardHotel.css">
+    
+</head>
+<body onload="funcionesInicioGestionReservas()">
+    <header class="logoContainer">
+        <img class="flechaImg" src="../../../img/linea.webp" alt="linea">
+        <img class="logoImgFake" src="../../../img/logoFake.png" alt="logo">
+        <img class="flechaImg" src="../../../img/linea.webp" alt="linea">
+    </header>
+    <main>
+        <h2>GESTIÓN DE RESERVAS</h2>
+        
+        <section class="infoReservasContainer">
+            <article class="inputContainer">
+                <div>
+                    <input class="inputNumReserva" type="text" placeholder="nº reserva">
+                    <button class="botonBuscar" onclick="obtenerInfoReserva()">Buscar</button>
+                    <p class="aviso aviso1"></p>
+                </div>
+                
+                <div>
+                    <input class="inputNumHabitacion" type="text" placeholder="nº habitación">
+                    <button class="botonBuscar" onclick="obtenerInfoPorHabitacion()">Buscar</button>
+                    <p class="aviso aviso2"></p>
+                </div>
+            </article>
+            
+            <article class="articleComponenteContainer">
+                <article class="articleComponente">
+                    <h3>ENTRADAS <span class="spanFecha"></span></h3>
+                    <table class="tableEntradas">
+                        <tr>
+                            <th>Nº Reserva</th>
+                            <th>DNI</th>
+                            <th>Check-in</th>
+                        </tr>  
+                    </table>
+                </article>
+
+                <article class="articleComponente">
+                    <h3>SALIDAS <span class="spanFecha"></span></h3>
+                    <table class="tableSalidas">
+                        <tr>
+                            <th>Nº Reserva</th>
+                            <th>DNI</th>
+                            <th>Check-out</th>
+                        </tr>  
+                    </table>
+                </article>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p class="copyrigth">Hoteles Sostenibles © 2024 </p>
+    </footer>
+    <script src="../../../js/dashboardHotel/dashboardReserva.js"></script>
+</body>
+</html>

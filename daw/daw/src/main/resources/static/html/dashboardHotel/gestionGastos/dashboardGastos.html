@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control NOMBRE HOTEL</title>
+    <link rel="stylesheet" href="../../../css/dashboardHotel.css">
+</head>
+<body>
+    <header class="logoContainer">
+        <img class="flechaImg" src="../../../img/linea.webp" alt="linea">
+        <img class="logoImgFake" src="../../../img/logoFake.png" alt="logo">
+        <img class="flechaImg" src="../../../img/linea.webp" alt="linea">
+    </header>
+
+    <main>
+        <h3>AÑADIR CONSUMO</h3>
+        
+        <form class="insertarGastos">
+            <label class="labelGasto">
+                Concepto
+                <input id="concepto" class="inputGastos" type="text">
+            </label>
+            <label class="labelGasto">
+                Precio
+                <input id="precio" type="number" step="0.01" class="inputGastos" value="0.00">
+            </label>
+            <label class="labelGasto">
+                Nº Habitación
+                <input id="habitacion" type="number" class="inputGastos" min="1" value="1">
+            </label>
+            <button class="botonAnadirGasto" type="button" onclick="insertarGasto()">Añadir</button>
+        </form>
+    </main>
+    <footer>
+        <p class="copyrigth">Hoteles Sostenibles © 2024 </p>
+    </footer>
+    <script src="../../../js/dashboardHotel/dashboardGastos.js"></script>
+</body>
+</html>
