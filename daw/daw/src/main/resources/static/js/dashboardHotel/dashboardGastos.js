@@ -17,10 +17,15 @@ async function insertarGasto()
             body: JSON.stringify(gasto)
         })
 
+        const mensaje =  document.querySelector('.mensajeGasto')
         if(!response.ok)
         {
+            mensaje.textContent = 'La habitación no está ocupada'
             throw new Error(`Error HTTP ${response.status}`)
         }
+        mensaje.classList.remove('aviso')
+        mensaje.style.color = 'green'
+        mensaje.textContent = 'Gasto añadido correctamente'
     } 
     catch(error)
     {

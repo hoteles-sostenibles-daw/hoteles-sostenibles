@@ -77,7 +77,7 @@ public class DashboardHotelController {
 
     @GetMapping("/actualizarcheckin/{codigoReserva}")
     public String actualizarCheckIn( @PathVariable String codigoReserva) {
-        return  this.gestionDatosReservaService.actualizarCheckIn(codigoReserva);
+        return this.gestionDatosReservaService.actualizarCheckIn(codigoReserva);
     }
 
     @GetMapping("/actualizarcheckout/{codigoReserva}")

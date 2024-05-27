@@ -62,6 +62,21 @@ async function enviarFormulario(event){
         }
         
         aviso.textContent= "Reserva efectuada correctamente. Revisa tu email";
+        aviso.style.color = 'green'
+        setTimeout(() => {
+            campoFechaEntrada.value = '' 
+            campoFechaSalida.value = '' 
+            campoNumeroPersona.value = '' 
+            campoNombre.value = '' 
+            campoDni.value = '' 
+            campoTelefono.value = '' 
+            campoEmail.value = ''
+            document.querySelector('.formularioReserva').style.display = 'none'
+            const dias = document.querySelectorAll('.diaCelda')
+            dias.forEach(dia => {
+                dia.classList.remove('fechaSeleccionada')
+            })
+        }, 5000)
     } 
     catch(error)
     {
