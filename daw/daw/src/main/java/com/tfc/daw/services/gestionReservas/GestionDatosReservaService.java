@@ -153,7 +153,9 @@ public class GestionDatosReservaService {
         reservaObjeto.setHotel_nombre(reserva.get().getHotel_nombre());
         reservaObjeto.setHuesped_dni(reserva.get().getHuesped_dni());
         reservaObjeto.setHabitacion_numero(null);
-        this.habitacionRepository.actualizarEstadoHabitacionSalida(Integer.parseInt(reserva.get().getHabitacion_numero()));
+        if(reserva.get().getHabitacion_numero() != null){
+            this.habitacionRepository.actualizarEstadoHabitacionSalida(Integer.parseInt(reserva.get().getHabitacion_numero()));
+        }
         return reservaObjeto;
     }
 

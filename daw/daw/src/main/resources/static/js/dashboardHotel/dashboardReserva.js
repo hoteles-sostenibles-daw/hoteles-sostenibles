@@ -131,7 +131,6 @@ async function checkinRealizado(boton)
     if(!boton.hasChildNodes()){
         try{
             const numReserva = boton.getAttribute("class").split(" ")[1];
-            console.log(numReserva);
             const response = await fetch(`${url}actualizarcheckin/${numReserva}`, {
                 method: 'GET'
             })
